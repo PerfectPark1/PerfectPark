@@ -2,23 +2,105 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Park</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="assets/style.css">
     <title>Perfect Park</title>
 </head>
 
 <body>
-    <!-- heading with some instructions -->
-    <!-- list out all the parks  -->
-    <!-- once you click on a park, it shows the weather -->
 
-<!-- dropdown list of states -->
+    <div class="dropdown">
+        <button onclick="stateSelection()" class="dropbtn">Dropdown</button>
+        <div id="stateCode" class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+      </div>
 
-    <!-- weather info: -->
-    <!-- current weather: -->
-    <!-- Temp, Humidity, UV Index,  -->
-    <!-- will need to use the lat/lon coordinates -->
+    <!-- Fixed background img TBD -->
+    <div class="uk-background-fixed">
+        <img src="">
+
+
+        <!-- heading with some instructions -->
+        <header>
+            <div class="container-fluid">
+                <h1>Perfect Park</h1>
+                <h4>
+                    Select the state in which you would like to visit a National Park in!
+                </h4>
+            </div>
+        </header>
+        <!-- End Main heading -->
+        <!-- list out all the parks  -->
+
+        <!-- once you click on a park, it shows the weather -->
+
+
+        <!-- dropdown list of states -->
+
+        <!-- weather info:  Jordan's killer weather app  This should be-------------->
+        <!-- Start container -->
+        <div class="container">
+            <div>
+                <p id="currentDay"></p>
+                <p id="currentTime"></p>
+            </div>
+            <!-- Start row -->
+            <div class="row">
+                <!-- Start column -->
+                <embed class="col-lg-3 bg-light pt-3 pb-3 mx-auto">
+                <h5>Search for a city:</h5>
+
+                <!-- Start input group -->
+                <div class="input-group mb-3">
+                    <input id="searchCity" type="text" class="form-control mt-3" placeholder="City name..."
+                        class="input-group-append" />
+                    <button id="searchBtn" class="btn btn-primary mt-3" type="button" id="button-addon2">
+                        <i class="far fa-search"></i>
+                    </button>
+                </div>
+                <!-- End input group -->
+
+
+            </div>
+            <!-- End column -->
+            <div class="d-flex">
+                <!-- Start column -->
+                <div class="col-sm-9">
+                    <div id="currentCity"></div>
+                </div>
+                <!-- End column -->
+
+                <!-- History card -->
+                <div class="card d-flex col-sm-3">
+                    <strong>History</strong>
+                    <ul id="cityList" class="list-group list-group-flush list"></ul>
+                </div>
+                <!-- End card -->
+            </div>
+        </div>
+
+        <!-- End row -->
+
+        <!-- Start forecast container -->
+        <div class="mt-4 col-md-12">
+            <h5 id="forecastH5" class="mt-3" style="display: none;">5-Day Forecast:</h5>
+
+            <!-- Start row -->
+            <div id="forecast" class="row mb-6"></div>
+            <!-- End row -->
+        </div>
+        <!-- End forecast container -->
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/script.js" type="text/javascript"></script>
 </body>
 
