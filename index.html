@@ -16,18 +16,16 @@
 <body>
 
 
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <button onclick="stateSelection()" class="dropbtn">Dropdown</button>
         <div id="stateCode" class="dropdown-content">
             <a href="./assets/script.js.stateCode"></a>
             
         </div>
-      </div>
+      </div> -->
 
     <!-- Fixed background img TBD -->
     <div class="uk-background-fixed">
-        <img src="">
-
 
         <!-- heading with some instructions -->
         <header>
@@ -36,6 +34,9 @@
                 <h4>
                     Select the state in which you would like to visit a National Park in!
                 </h4>
+                <select id="selectNumber">
+                    <option>Choose a number</option>
+                </select>
             </div>
         </header>
         <!-- End Main heading -->
@@ -60,9 +61,9 @@
 
                 <!-- Start input group -->
                 <div class="input-group mb-3">
-                    <input id="searchCity" type="text" class="form-control mt-3" placeholder="City name..."
+                    <input id="searchCity" type="text"placeholder="City name..."
                         class="input-group-append" />
-                    <button id="searchBtn" class="btn btn-primary mt-3" type="button" id="button-addon2">
+                    <button class="btn btn-primary mt-3" type="button" id="button-addon3">
                         <i class="far fa-search"></i>
                     </button>
                 </div>
