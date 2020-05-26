@@ -1,7 +1,4 @@
 // User will select a state from a dropdown list
-
-// ----------------------------------
-
 var select = document.getElementById("selectNumber");
 var options = [
 	"AL",
@@ -71,28 +68,6 @@ for (var i = 0; i < options.length; i++) {
 	el.value = opt;
 	select.appendChild(el);
 }
-// ----------------------------------
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function stateSelection() {
-	document.getElementById("stateCode").classList.toggle("show");
-	// pull up parks
-	// var city so we can pull up the weather using .dotation
-}
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function (event) {
-	if (!event.target.matches(".dropbtn")) {
-		var stateCode = document.getElementsByClassName("dropdown-content");
-		var i;
-		for (i = 0; i < stateCode.length; i++) {
-			var openDropdown = stateCode[i];
-			if (openDropdown.classList.contains("show")) {
-				openDropdown.classList.remove("show");
-			}
-		}
-	}
-};
 
 // Ajax for State
 const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
@@ -109,6 +84,9 @@ $.ajax({
 	const lat = response.data.latitude;
 	const lon = response.data.longitude;
 });
+
+// pull up parks
+// var city so we can pull up the weather using .dotation
 
 // API call to the OpenWeather API
 const WapiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
