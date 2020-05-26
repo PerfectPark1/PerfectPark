@@ -93,8 +93,10 @@ $.ajax({
   method: "GET",
 }).then(function (response) {
   console.log(response);
+  // need to validate the latitude and longitude
   const lat = response.data.latitude;
   const lon = response.data.longitude;
+  // call on the weather function and pass these values through
 });
 
 // API call to the OpenWeather API
