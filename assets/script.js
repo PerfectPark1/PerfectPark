@@ -1,4 +1,5 @@
 // User will select a state from a dropdown list
+var currentDay = $("#currentDay").html(moment().format("dddd, MMMM Do YYYY, h:mm:"));
 var select = document.getElementById("selectNumber");
 var options = [
 	"AL",
@@ -80,6 +81,11 @@ $.ajax({
 	url: NPSqueryURL,
 	method: "GET",
 }).then(function (response) {
+  console.log(response);
+  // need to validate the latitude and longitude
+  const lat = response.data.latitude;
+  const lon = response.data.longitude;
+  // call on the weather function and pass these values through
 	console.log(response);
 	const lat = response.data.latitude;
 	const lon = response.data.longitude;
