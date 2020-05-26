@@ -60,6 +60,70 @@ var stateCode = [
   "WV",
   "WI",
   "WY",
+
+var currentDay = $("#currentDay").html(moment().format("dddd, MMMM Do YYYY, h:mm:"));
+var select = document.getElementById("selectNumber");
+var options = [
+	"AL",
+	"AK",
+	"AS",
+	"AZ",
+	"AR",
+	"CA",
+	"CO",
+	"CT",
+	"DE",
+	"DC",
+	"FM",
+	"FL",
+	"GA",
+	"GU",
+	"HI",
+	"ID",
+	"IL",
+	"IN",
+	"IA",
+	"KS",
+	"KY",
+	"LA",
+	"ME",
+	"MH",
+	"MD",
+	"MA",
+	"MI",
+	"MN",
+	"MS",
+	"MO",
+	"MT",
+	"NE",
+	"NV",
+	"NH",
+	"NJ",
+	"NM",
+	"NY",
+	"NC",
+	"ND",
+	"MP",
+	"OH",
+	"OK",
+	"OR",
+	"PW",
+	"PA",
+	"PR",
+	"RI",
+	"SC",
+	"SD",
+	"TN",
+	"TX",
+	"UT",
+	"VT",
+	"VI",
+	"VA",
+	"WA",
+	"WV",
+	"WI",
+	"WY",
+
 ];
 for (var i = 0; i < stateCode.length; i++) {
   var opt = stateCode[i];
@@ -81,6 +145,7 @@ $.ajax({
   method: "GET",
 }).then(function (response) {
   console.log(response);
+
   $("#selectState").val(stateCode);
   stateCode.push(response.data.contacts.fullName);
   //-----------------------
@@ -94,6 +159,16 @@ $.ajax({
     el.value = opt;
     select.appendChild(el);
   }
+
+  // need to validate the latitude and longitude
+  const lat = response.data.latitude;
+  const lon = response.data.longitude;
+  // call on the weather function and pass these values through
+	console.log(response);
+	const lat = response.data.latitude;
+	const lon = response.data.longitude;
+});
+
 
   //-------------
 });
