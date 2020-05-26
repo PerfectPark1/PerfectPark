@@ -1,4 +1,6 @@
 // User will select a state from a dropdown list
+var currentDay = $("#currentDay").html(moment().format("dddd, MMMM Do YYYY, h:mm:"));
+
 var stateCode = [
   "AL",
   "AK",
@@ -59,6 +61,8 @@ var stateCode = [
   "WV",
   "WI",
   "WY",
+
+
 ];
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
