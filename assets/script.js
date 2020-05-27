@@ -1,6 +1,12 @@
 // User will select a state from a dropdown list
+const searchBtn = $("search");
+var city = "";
 var select = document.getElementById("selectNumber");
-var options = [
+
+let stateCode = "",
+	lat = "",
+	lon = "";
+var state = [
 	"AL",
 	"AK",
 	"AS",
@@ -61,13 +67,26 @@ var options = [
 	"WI",
 	"WY",
 ];
-for (var i = 0; i < options.length; i++) {
-	var opt = options[i];
+for (var i = 0; i < state.length; i++) {
+	var opt = state[i];
 	var el = document.createElement("option");
 	el.textContent = opt;
 	el.value = opt;
 	select.appendChild(el);
 }
+// call for the search button to activate the function to search for the state and city info
+$(document).on("click", "#search", function () {
+	let NPSqueryURL = $(".form-control").val();
+	stateCode = $("#selectNumber").val();
+
+	console.log(stateCode);
+	console.log(NPSqueryURL);
+});
+
+$("#searchBtn").on("click", function () {
+	stateCode = $("#selectState").val().trim();
+	city = $("searchCity").val().trim();
+});
 
 // Ajax for State
 const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
@@ -81,13 +100,13 @@ $.ajax({
 	method: "GET",
 }).then(function (response) {
 	console.log(response);
-	const lat = response.data.latitude;
-	const lon = response.data.longitude;
+	parkPage(response);
+	lat = response.data.latitude;
+	lon = response.data.longitude;
 });
-
+function parkPage(response) {}
 // pull up parks
 // var city so we can pull up the weather using .dotation
-
 // API call to the OpenWeather API
 const WapiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
 const WqueryURL =
@@ -98,11 +117,12 @@ const WqueryURL =
 	"&appid=" +
 	WapiKey;
 $.ajax({
-	url: queryUrl,
+	url: WqueryURL,
 	method: "GET",
 }).then(function (response) {
 	// select city of park pulled up
-	parkWeather(response);
+	// parkWeather(response);
+	console.log(response);
 });
 
 function parkWeather(response) {
@@ -163,7 +183,7 @@ function parkWeather(response) {
 			// select the id we use to display weather
 			$("").append(card);
 			var badge = $("<div>")
-				.addClass(badge)
+				.addClass("badge")
 				.text("UV Index: " + uvFinal);
 			$("").append(badge);
 			// then style uvFinal button with below
