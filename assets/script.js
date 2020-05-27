@@ -8,7 +8,7 @@ var select = document.getElementById("selectNumber");
 let stateCode = "",
 	lat = "",
 	lon = "";
-var state = [
+var stateCode = [
 	"AL",
 	"AK",
 	"AS",

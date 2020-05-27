@@ -2,10 +2,10 @@
 
 Create app for users to search parks, trails and weather conditions for those places. The user can search by location to find their PERFECT PARK.
 
-Stephanie - Frontend design
-Conner - jQuery
-Jordan - Javascript
-Kevin - Model & Controller implementation
+Stephanie - Frontend design/Model & Controller implementation
+Conner - jQuery/Javascript
+Jordan - jQuery/Model & Controller implementation
+Kevin - jQuery/debugger
 
 MVP - allow user to seach a location, a list of parks near by and see the weather conditions
 
@@ -26,7 +26,7 @@ Tech Stack & Tools
 API list
 *Google Maps
 *National Parks
-\*Weather
+*Weather
 
 Project Board - Link
 https://github.com/CGMcBride/PerfectPark/projects/2
