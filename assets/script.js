@@ -1,69 +1,14 @@
 // User will select a state from a dropdown list
-var select = document.getElementById("selectState");
-var stateCode = [
-  "AL",
-  "AK",
-  "AS",
-  "AZ",
-  "AR",
-  "CA",
-  "CO",
-  "CT",
-  "DE",
-  "DC",
-  "FM",
-  "FL",
-  "GA",
-  "GU",
-  "HI",
-  "ID",
-  "IL",
-  "IN",
-  "IA",
-  "KS",
-  "KY",
-  "LA",
-  "ME",
-  "MH",
-  "MD",
-  "MA",
-  "MI",
-  "MN",
-  "MS",
-  "MO",
-  "MT",
-  "NE",
-  "NV",
-  "NH",
-  "NJ",
-  "NM",
-  "NY",
-  "NC",
-  "ND",
-  "MP",
-  "OH",
-  "OK",
-  "OR",
-  "PW",
-  "PA",
-  "PR",
-  "RI",
-  "SC",
-  "SD",
-  "TN",
-  "TX",
-  "UT",
-  "VT",
-  "VI",
-  "VA",
-  "WA",
-  "WV",
-  "WI",
-  "WY",
 
-var currentDay = $("#currentDay").html(moment().format("dddd, MMMM Do YYYY, h:mm:"));
+const searchBtn = $("search");
+var city = "";
+var select = document.getElementById("selectState");
 var select = document.getElementById("selectNumber");
-var options = [
+
+let stateCode = "",
+	lat = "",
+	lon = "";
+var state = [
 	"AL",
 	"AK",
 	"AS",
@@ -125,13 +70,29 @@ var options = [
 	"WY",
 
 ];
+
+
 for (var i = 0; i < stateCode.length; i++) {
   var opt = stateCode[i];
   var el = document.createElement("option");
   el.textContent = opt;
   el.value = opt;
   select.appendChild(el);
+
 }
+// call for the search button to activate the function to search for the state and city info
+$(document).on("click", "#search", function () {
+	let NPSqueryURL = $(".form-control").val();
+	stateCode = $("#selectNumber").val();
+
+	console.log(stateCode);
+	console.log(NPSqueryURL);
+});
+
+$("#searchBtn").on("click", function () {
+	stateCode = $("#selectState").val().trim();
+	city = $("searchCity").val().trim();
+});
 
 // Ajax for State
 const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
@@ -165,14 +126,17 @@ $.ajax({
   const lon = response.data.longitude;
   // call on the weather function and pass these values through
 	console.log(response);
-	const lat = response.data.latitude;
-	const lon = response.data.longitude;
+	parkPage(response);
+	lat = response.data.latitude;
+	lon = response.data.longitude;
 });
 
-
-  //-------------
-});
+function parkPage(response) {}
 // pull up parks
+// var city so we can pull up the weather using .dotation
+
+});
+
 // var city so we can pull up the weather using .dotation
 // const lat = response.data.latitude;
 // const lon = response.data.longitude;
@@ -187,11 +151,13 @@ const WqueryURL =
   "&appid=" +
   WapiKey;
 $.ajax({
+
   url: queryUrl,
   method: "GET",
 }).then(function (response) {
   // select city of park pulled up
   parkWeather(response);
+
 });
 
 function parkWeather(response) {
@@ -242,7 +208,7 @@ function parkWeather(response) {
       lat +
       "&lon=" +
       lon;
-
+    
     $.ajax({
       url: UVQuery,
       method: "GET",
@@ -274,4 +240,5 @@ function parkWeather(response) {
       }
     });
   }
+
 }
