@@ -111,22 +111,22 @@ $.ajax({
 	}
 
 	// need to validate the latitude and longitude
+
 	const lat = response.data.latitude;
 	const lon = response.data.longitude;
 	// call on the weather function and pass these values through
 	console.log(response);
-	parkPage(response);
-	lat = response.data.latitude;
-	lon = response.data.longitude;
+	//-----verify functionality later:	parkPage(lat, lon);
 });
 
-function parkPage(response) {}
+function parkPage(response) {
+	//select user response
+	//make: response = stateCode(response.xxxxxxxxx)
+}
 // pull up parks
 // var city so we can pull up the weather using .dotation
 
 // var city so we can pull up the weather using .dotation
-const lat = response.data.latitude;
-const lon = response.data.longitude;
 
 // -------API call to the OpenWeather API---------------This code is fully functional.-----
 //--------No need to modify the weather section att.--------------------------------
