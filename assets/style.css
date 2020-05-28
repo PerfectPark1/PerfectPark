@@ -1,24 +1,35 @@
 /* heading class */
-body, html {
+body,
+html {
     height: 100%;
 }
 
-body,h1,h2,h3,h4,h5,h6 {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Josefin Sans', sans-serif;
 }
+
 .menu {
     display: none;
 }
+
 .bgimg {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("/assets/ppbckgrd.jpeg");
-  background-position: center;
-  min-height: 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("ppbckgrd.jpeg");
+    background-position: center;
+    min-height: 90%;
 }
+
 .subtitle-homepage {
-    background: linear-gradient(90deg, rgba(119,148,121,0.4662640056022409) 23%, rgba(137,166,106,0.5662640056022409) 78%);
+    background: linear-gradient(90deg, rgba(119, 148, 121, 0.4662640056022409) 23%, rgba(137, 166, 106, 0.5662640056022409) 78%);
 }
+
 /* park list */
 /* dropdown list of states */
 /* Dropdown Button */
