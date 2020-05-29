@@ -1,141 +1,150 @@
 // User will select a state from a dropdown list
 var select = document.getElementById("selectState");
-
+// Array of available states.
 var stateCode = [
-	"AL",
-	"AK",
-	"AS",
-	"AZ",
-	"AR",
-	"CA",
-	"CO",
-	"CT",
-	"DE",
-	"DC",
-	"FM",
-	"FL",
-	"GA",
-	"GU",
-	"HI",
-	"ID",
-	"IL",
-	"IN",
-	"IA",
-	"KS",
-	"KY",
-	"LA",
-	"ME",
-	"MH",
-	"MD",
-	"MA",
-	"MI",
-	"MN",
-	"MS",
-	"MO",
-	"MT",
-	"NE",
-	"NV",
-	"NH",
-	"NJ",
-	"NM",
-	"NY",
-	"NC",
-	"ND",
-	"MP",
-	"OH",
-	"OK",
-	"OR",
-	"PW",
-	"PA",
-	"PR",
-	"RI",
-	"SC",
-	"SD",
-	"TN",
-	"TX",
-	"UT",
-	"VT",
-	"VI",
-	"VA",
-	"WA",
-	"WV",
-	"WI",
-	"WY",
+  "AL",
+  "AK",
+  "AS",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "DC",
+  "FM",
+  "FL",
+  "GA",
+  "GU",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MH",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "MP",
+  "OH",
+  "OK",
+  "OR",
+  "PW",
+  "PA",
+  "PR",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VI",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY",
 ];
+// Populates the dropdown with array from stateCode.
 for (var i = 0; i < stateCode.length; i++) {
-	var opt = stateCode[i];
-	var el = document.createElement("option");
-	el.setAttribute("value", opt);
-	el.textContent = opt;
-	select.appendChild(el);
+  var opt = stateCode[i];
+  var el = document.createElement("option");
+  el.setAttribute("value", opt);
+  el.textContent = opt;
+  select.appendChild(el);
 }
-
+// Makes submit button only targed the specific state.
 $(document).ready(function () {
-	$("#submitBtn").on("click", function () {
-		let stateCode = $("#selectState option:selected").text();
-		console.log(stateCode);
-		populateState(stateCode);
-	});
+  $("#submitBtn").on("click", function () {
+    let stateCode = $("#selectState option:selected").text();
+    console.log(stateCode);
+    // Makes the api only pull data for the state selected.
+    populateState(stateCode);
+  });
 });
 $("select").val("option-value");
 
 // Ajax for State
 function populateState(stateCode) {
-	const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
-	const NPSqueryURL =
-		"https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
-		"&stateCode=" +
-		stateCode;
-		console.log("good");
+  const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
+  const NPSqueryURL =
+    "https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
+    "&stateCode=" +
+    stateCode;
+  console.log("good");
 
-	$.ajax({
-		url: NPSqueryURL,
-		method: "GET",
-	}).then(function (response) {
-		console.log("ajax function running");
-		parkPage(response);
-		$("#selectState").val(stateCode);
-		stateCode.push(response.data.contacts.fullName);
-		//----------------------
-		var parkList = response.data.contacts.fullName;
-		// for (var i = 0; i < parkList.length; i++) {
-		//   var opt = parkList[i];
-		//   var el = document.createElement("option");
-		//   el.textContent = opt;
-		//   el.value = opt;
-		//   select.appendChild(el);
-		// }
+  // append a loading icon here
 
-		// need to validate the latitude and longitude
+  $.ajax({
+    url: NPSqueryURL,
+    method: "GET",
+  }).then(function (response) {
+    // remove the loading icon here
 
-		// const lat = response.data.latitude;
-		// const lon = response.data.longitude;
-		// call on the weather function and pass these values through
-		//console.log(response);
-		//-----verify functionality later:	parkPage(lat, lon);
-		// we need to find a way to stringify the latlon combo in the json selecting thing. They dont have seperate lat and lon
-	});
+    console.log("ajax function running");
+    var parks = parkPage(response);
+    $(".parks").append(`
+		<div class="card" id="myCard"></div>
+	`);
+    parks.forEach(function (park) {
+      console.log(park);
+      $("#myCard").append(park);
+    });
+    $("#selectState").val(stateCode);
+    stateCode.push(response.data.contacts.fullName);
+    var parkList = response.data.contacts.fullName;
+  });
+}
+//function is called when ajax function runs inside the populateState function.
+function parkPage(parksArray) {
+  console.log(parksArray);
+  // park page will take in an array of many parks and their info and return an array of ONLY the park names
+  return parksArray.data.map(function (park) {
+    const parkName = park.fullName;
+    const hours = park.operatingHours[0].standardHours;
+    const directions = park.directionsUrl;
+    const lon = park.longitude;
+    const lat = park.latitude;
+
+    console.log(parkName);
+    console.log(hours);
+    console.log(directions);
+    // console.log(item.activities[""].names);
+    console.log(lon);
+    console.log(lat);
+
+    return `
+			<div class="card">
+				<div class="card-body">
+				<button class="park" data-lon="${lon}" onclick="showParkInfo(this)">
+					<h1>${parkName}</h1>
+				</button>
+				</div>
+			</div>
+		`;
+  });
 }
 
-function parkPage(parksArray) {
-	console.log(parksArray)
-	// park page will take in an array of many parks and their info and return an array of ONLY the park names
-	//stateCode = stateCode(response.data.fullName);
-	let newNamesArray = parksArray.data.map(function(item){
-		console.log(item.fullName)
-		return "hey"
-	})
-	// for (var i = 0; i < response.length; i++) {
-	// 	var opt = stateCode[i];
-	// 	var el = document.createElement("option");
-	// 	el.setAttribute("value", opt);
-	// 	el.textContent = opt;
-	// 	select.appendChild(el);
-	// }
-
-	//make: response = stateCode(response.xxxxxxxxx)
-	// pull up parks
-	// var city so we can pull up the weather using .dotation
+function showParkInfo(e) {
+  console.log(e);
+  console.log($(e).attr("data-lon"));
 }
 
 // -------API call to the OpenWeather API---------------This code is fully functional.-----
