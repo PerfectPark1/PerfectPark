@@ -35,5 +35,18 @@ h6 {
 }
 
 /* park list */
+.loader {
+  border: 16px solid #a8fe84; /* Light green */
+  border-top: 16px solid #2d5334; /* green */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 /* dropdown list of states */
 /* Dropdown Button */

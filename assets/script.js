@@ -96,6 +96,7 @@ function populateState(stateCode) {
     url: NPSqueryURL,
     method: "GET",
   }).then(function (response) {
+
     // remove the loading icon here
 
     console.log("ajax function running");
