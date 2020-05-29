@@ -62,7 +62,6 @@ var stateCode = [
 	"WI",
 	"WY",
 ];
-
 for (var i = 0; i < stateCode.length; i++) {
 	var opt = stateCode[i];
 	var el = document.createElement("option");
@@ -75,44 +74,47 @@ $(document).ready(function () {
 	$("#submitBtn").on("click", function () {
 		let stateCode = $("#selectState option:selected").text();
 		console.log(stateCode);
+		populateState(stateCode);
 	});
 });
 $("select").val("option-value");
 
 // Ajax for State
-const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
-const NPSqueryURL =
-	"https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
-	"&stateCode=" +
-	stateCode;
+function populateState(stateCode) {
+	const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
+	const NPSqueryURL =
+		"https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
+		"&stateCode=" +
+		stateCode;
 
-$.ajax({
-	url: NPSqueryURL,
-	method: "GET",
-}).then(function (response) {
-	console.log(response);
+	$.ajax({
+		url: NPSqueryURL,
+		method: "GET",
+	}).then(function () {
+		console.log("ajax function running");
+		parkPage(response);
+		$("#selectState").val(stateCode);
+		stateCode.push(response.data.contacts.fullName);
+		//----------------------
+		var parkList = response.data.contacts.fullName;
+		// for (var i = 0; i < parkList.length; i++) {
+		//   var opt = parkList[i];
+		//   var el = document.createElement("option");
+		//   el.textContent = opt;
+		//   el.value = opt;
+		//   select.appendChild(el);
+		// }
 
-	$("#selectState").val(stateCode);
-	stateCode.push(response.data.contacts.fullName);
-	//----------------------
-	var parkList = response.data.contacts.fullName;
-	// for (var i = 0; i < parkList.length; i++) {
-	//   var opt = parkList[i];
-	//   var el = document.createElement("option");
-	//   el.textContent = opt;
-	//   el.value = opt;
-	//   select.appendChild(el);
-	// }
+		// need to validate the latitude and longitude
 
-	// need to validate the latitude and longitude
-
-	// const lat = response.data.latitude;
-	// const lon = response.data.longitude;
-	// call on the weather function and pass these values through
-	console.log(response);
-	//-----verify functionality later:	parkPage(lat, lon);
-	// we need to find a way to stringify the latlon combo in the json selecting thing. They dont have seperate lat and lon
-});
+		// const lat = response.data.latitude;
+		// const lon = response.data.longitude;
+		// call on the weather function and pass these values through
+		console.log(response);
+		//-----verify functionality later:	parkPage(lat, lon);
+		// we need to find a way to stringify the latlon combo in the json selecting thing. They dont have seperate lat and lon
+	});
+}
 
 function parkPage(response) {
 	stateCode = stateCode(response.data.fullName);
