@@ -86,11 +86,12 @@ function populateState(stateCode) {
 		"https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
 		"&stateCode=" +
 		stateCode;
+		console.log("good");
 
 	$.ajax({
 		url: NPSqueryURL,
 		method: "GET",
-	}).then(function () {
+	}).then(function (response) {
 		console.log("ajax function running");
 		parkPage(response);
 		$("#selectState").val(stateCode);
@@ -110,14 +111,27 @@ function populateState(stateCode) {
 		// const lat = response.data.latitude;
 		// const lon = response.data.longitude;
 		// call on the weather function and pass these values through
-		console.log(response);
+		//console.log(response);
 		//-----verify functionality later:	parkPage(lat, lon);
 		// we need to find a way to stringify the latlon combo in the json selecting thing. They dont have seperate lat and lon
 	});
 }
 
-function parkPage(response) {
-	stateCode = stateCode(response.data.fullName);
+function parkPage(parksArray) {
+	console.log(parksArray)
+	// park page will take in an array of many parks and their info and return an array of ONLY the park names
+	//stateCode = stateCode(response.data.fullName);
+	let newNamesArray = parksArray.data.map(function(item){
+		console.log(item.fullName)
+		return "hey"
+	})
+	// for (var i = 0; i < response.length; i++) {
+	// 	var opt = stateCode[i];
+	// 	var el = document.createElement("option");
+	// 	el.setAttribute("value", opt);
+	// 	el.textContent = opt;
+	// 	select.appendChild(el);
+	// }
 
 	//make: response = stateCode(response.xxxxxxxxx)
 	// pull up parks
