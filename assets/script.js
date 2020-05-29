@@ -112,6 +112,12 @@ function parkPage(parksArray) {
 	let newNamesArray = parksArray.data.map(function (item) {
 		// newNamesArray(item.fullName).innerHTML =
 		// document.getElementById("demo").innerHTML = newNamesArray;
+		const parkName = item.fullName;
+		const hours = item.operatingHours[0].standardHours;
+		const directions = item.directionsUrl;
+		const lon = item.longitude;
+		const lat = item.latitude;
+
 		console.log(item.fullName);
 		console.log(item.operatingHours[0].standardHours);
 		console.log(item.directionsUrl);
