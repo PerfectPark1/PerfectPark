@@ -1,6 +1,6 @@
 // User will select a state from a dropdown list
 var select = document.getElementById("selectState");
-
+// Array of available states.
 var stateCode = [
   "AL",
   "AK",
@@ -62,6 +62,7 @@ var stateCode = [
   "WI",
   "WY",
 ];
+// Populates the dropdown with array from stateCode.
 for (var i = 0; i < stateCode.length; i++) {
   var opt = stateCode[i];
   var el = document.createElement("option");
@@ -69,11 +70,12 @@ for (var i = 0; i < stateCode.length; i++) {
   el.textContent = opt;
   select.appendChild(el);
 }
-
+// Makes submit button only targed the specific state.
 $(document).ready(function () {
   $("#submitBtn").on("click", function () {
     let stateCode = $("#selectState option:selected").text();
     console.log(stateCode);
+    // Makes the api only pull data for the state selected.
     populateState(stateCode);
   });
 });
@@ -99,14 +101,14 @@ function populateState(stateCode) {
     //----------------------
     var parkList = response.data.contacts.fullName;
     //-----verify functionality later:	parkPage(lat, lon);
-    // we need to find a way to stringify the latlon combo in the json selecting thing. They dont have seperate lat and lon
+    // we need to find a way to stringify the latlon combo in the json selecting thing. They dont have seperate lat and lon.
   });
 }
-
+//function is called when ajax function runs inside the populateState function.
 function parkPage(parksArray) {
   console.log(parksArray);
   // park page will take in an array of many parks and their info and return an array of ONLY the park names
-  //stateCode = stateCode(response.data.fullName);cod
+
   let newNamesArray = parksArray.data.map(function (item) {
     console.log(item.fullName);
     return "hey";
