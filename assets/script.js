@@ -2,93 +2,94 @@
 var select = document.getElementById("selectState");
 // Array of available states.
 var stateCode = [
-  "AL",
-  "AK",
-  "AS",
-  "AZ",
-  "AR",
-  "CA",
-  "CO",
-  "CT",
-  "DE",
-  "DC",
-  "FM",
-  "FL",
-  "GA",
-  "GU",
-  "HI",
-  "ID",
-  "IL",
-  "IN",
-  "IA",
-  "KS",
-  "KY",
-  "LA",
-  "ME",
-  "MH",
-  "MD",
-  "MA",
-  "MI",
-  "MN",
-  "MS",
-  "MO",
-  "MT",
-  "NE",
-  "NV",
-  "NH",
-  "NJ",
-  "NM",
-  "NY",
-  "NC",
-  "ND",
-  "MP",
-  "OH",
-  "OK",
-  "OR",
-  "PW",
-  "PA",
-  "PR",
-  "RI",
-  "SC",
-  "SD",
-  "TN",
-  "TX",
-  "UT",
-  "VT",
-  "VI",
-  "VA",
-  "WA",
-  "WV",
-  "WI",
-  "WY",
+	"AL",
+	"AK",
+	"AS",
+	"AZ",
+	"AR",
+	"CA",
+	"CO",
+	"CT",
+	"DE",
+	"DC",
+	"FM",
+	"FL",
+	"GA",
+	"GU",
+	"HI",
+	"ID",
+	"IL",
+	"IN",
+	"IA",
+	"KS",
+	"KY",
+	"LA",
+	"ME",
+	"MH",
+	"MD",
+	"MA",
+	"MI",
+	"MN",
+	"MS",
+	"MO",
+	"MT",
+	"NE",
+	"NV",
+	"NH",
+	"NJ",
+	"NM",
+	"NY",
+	"NC",
+	"ND",
+	"MP",
+	"OH",
+	"OK",
+	"OR",
+	"PW",
+	"PA",
+	"PR",
+	"RI",
+	"SC",
+	"SD",
+	"TN",
+	"TX",
+	"UT",
+	"VT",
+	"VI",
+	"VA",
+	"WA",
+	"WV",
+	"WI",
+	"WY",
 ];
 // Populates the dropdown with array from stateCode.
 for (var i = 0; i < stateCode.length; i++) {
-  var opt = stateCode[i];
-  var el = document.createElement("option");
-  el.setAttribute("value", opt);
-  el.textContent = opt;
-  select.appendChild(el);
+	var opt = stateCode[i];
+	var el = document.createElement("option");
+	el.setAttribute("value", opt);
+	el.textContent = opt;
+	select.appendChild(el);
 }
 // Makes submit button only targed the specific state.
 $(document).ready(function () {
-  $("#submitBtn").on("click", function () {
-    let stateCode = $("#selectState option:selected").text();
-    console.log(stateCode);
-    // Makes the api only pull data for the state selected.
-    populateState(stateCode);
-  });
+	$("#submitBtn").on("click", function () {
+		let stateCode = $("#selectState option:selected").text();
+		console.log(stateCode);
+		// Makes the api only pull data for the state selected.
+		populateState(stateCode);
+	});
 });
 $("select").val("option-value");
 
 // Ajax for State
 function populateState(stateCode) {
-  const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
-  const NPSqueryURL =
-    "https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
-    "&stateCode=" +
-    stateCode;
-  console.log("good");
+	const NPSAPIkey = "UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo";
+	const NPSqueryURL =
+		"https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
+		"&stateCode=" +
+		stateCode;
+	console.log("good");
+
 
   // append a loading icon here
   $(".loaderIcon").append(`<div class="loader"></div>`);
@@ -101,11 +102,13 @@ function populateState(stateCode) {
     // remove the loading icon here
     $(".loaderIcon").remove("div");
 
-    console.log("ajax function running");
-    var parks = parkPage(response);
-    $(".parks").append(`
+
+		console.log("ajax function running");
+		var parks = parkPage(response);
+		$(".parks").append(`
 		<div class="card" id="myCard"></div>
 	`);
+
     parks.forEach(function (park) {
       console.log(park);
       $("#myCard").append(park);
@@ -113,40 +116,49 @@ function populateState(stateCode) {
     $("#selectState").val(stateCode);
     stateCode.push(response.data.contacts.fullName);
   });
+
 }
 //function is called when ajax function runs inside the populateState function.
 function parkPage(parksArray) {
-  console.log(parksArray);
-  // park page will take in an array of many parks and their info and return an array of ONLY the park names
-  return parksArray.data.map(function (park) {
-    const parkName = park.fullName;
-    const hours = park.operatingHours[0].standardHours;
-    const directions = park.directionsUrl;
-    const lon = park.longitude;
-    const lat = park.latitude;
+	console.log(parksArray);
+	// park page will take in an array of many parks and their info and return an array of ONLY the park names
+	return parksArray.data.map(function (park) {
+		console.log(park);
+		const parkName = park.fullName;
+		const hours = park.operatingHours[0].standardHours.monday;
+		const directions = park.directionsUrl;
+		const lon = park.longitude;
+		const lat = park.latitude;
 
-    console.log(parkName);
-    console.log(hours);
-    console.log(directions);
-    // console.log(item.activities[""].names);
-    console.log(lon);
-    console.log(lat);
+		console.log(parkName);
+		console.log(hours);
+		console.log(directions);
+		// console.log(item.activities[""].names);
+		console.log(lon);
+		console.log(lat);
 
-    return `
+		return `
 			<div class="card">
 				<div class="card-body">
-				<button class="park" data-lon="${lon}" onclick="showParkInfo(this)">
+				<button class="park"  onclick="showParkInfo(this)">
 					<h1>${parkName}</h1>
-				</button>
+        </button>
+        <p class="parkInfo" style = "display:none;" >
+        Hours: ${hours} <br>
+        Directions: <a href='${directions}' target="_blank">Click for directions</a> <br>
+        Longitude: ${lon} Latitude: ${lat}
+        
+        
+        </p>
 				</div>
 			</div>
 		`;
-  });
+	});
 }
 
 function showParkInfo(e) {
-  console.log(e);
-  console.log($(e).attr("data-lon"));
+	console.log(e);
+	$(e).siblings(".parkInfo").toggle();
 }
 
 // -------API call to the OpenWeather API---------------This code is fully functional.-----
