@@ -14,19 +14,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- My style sheet -->
     <link rel="stylesheet" href="assets/style.css" />
-    <title>Weather Dashboard</title>
+
+    <title>Park Information</title>
+
 </head>
 
 <body>
     <!-- Main heading -->
     <header>
         <div class="container-fluid">
-            <h1>Weather Dashboard</h1>
+
+            <!-- the h1 needs to be the name of the park chosen -->
+            <h1 id=""></h1>
             <h4>
-                Search a location to get the current weather and five day forecast
+                Below, you can find information about this park's weather, amenities, and more!
             </h4>
-            <p id="currentDay"></p>
-            <p id="currentTime"></p>
+
         </div>
     </header>
     <!-- End Main heading -->
@@ -35,20 +38,6 @@
     <div class="container">
         <!-- Start row -->
         <div class="row">
-            <!-- Start column -->
-            <embed class="col-lg-3 bg-light pt-3 pb-3 mx-auto">
-            <h5>Search for a city:</h5>
-
-            <!-- Start input group -->
-            <div class="input-group mb-3">
-                <input id="searchCity" type="text" class="form-control mt-3" placeholder="City name..."
-                    class="input-group-append" />
-                <button id="searchBtn" class="btn btn-primary mt-3" type="button" id="button-addon2">
-                    <i class="far fa-search"></i>
-                </button>
-            </div>
-            <!-- End input group -->
-
 
         </div>
         <!-- Current Weather Card -->
@@ -59,12 +48,6 @@
             </div>
             <!-- End card -->
 
-            <!-- History Card -->
-            <div class="card d-flex col-sm-3">
-                <strong>History</strong>
-                <ul id="cityList" class="list-group list-group-flush list"></ul>
-            </div>
-            <!-- End card -->
         </div>
     </div>
 
@@ -79,7 +62,7 @@
         <!-- End row -->
     </div>
     <!-- End forecast container -->
-    </div>
+
     <!-- End container -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

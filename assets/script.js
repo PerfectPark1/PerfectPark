@@ -90,27 +90,33 @@ function populateState(stateCode) {
 		stateCode;
 	console.log("good");
 
-	// append a loading icon here
 
-	$.ajax({
-		url: NPSqueryURL,
-		method: "GET",
-	}).then(function (response) {
-		// remove the loading icon here
+  // append a loading icon here
+  $(".loaderIcon").append(`<div class="loader"></div>`);
+
+  $.ajax({
+    url: NPSqueryURL,
+    method: "GET",
+  }).then(function (response) {
+
+    // remove the loading icon here
+    $(".loaderIcon").remove("div");
+
 
 		console.log("ajax function running");
 		var parks = parkPage(response);
 		$(".parks").append(`
 		<div class="card" id="myCard"></div>
 	`);
-		parks.forEach(function (park) {
-			console.log(park);
-			$("#myCard").append(park);
-		});
-		$("#selectState").val(stateCode);
-		stateCode.push(response.data.contacts.fullName);
-		var parkList = response.data.contacts.fullName;
-	});
+
+    parks.forEach(function (park) {
+      console.log(park);
+      $("#myCard").append(park);
+    });
+    $("#selectState").val(stateCode);
+    stateCode.push(response.data.contacts.fullName);
+  });
+
 }
 //function is called when ajax function runs inside the populateState function.
 function parkPage(parksArray) {
