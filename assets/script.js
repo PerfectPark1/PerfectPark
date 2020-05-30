@@ -91,12 +91,15 @@ function populateState(stateCode) {
   console.log("good");
 
   // append a loading icon here
+  $(".loaderIcon").append(`<div class="loader"></div>`);
 
   $.ajax({
     url: NPSqueryURL,
     method: "GET",
   }).then(function (response) {
+
     // remove the loading icon here
+    $(".loaderIcon").remove("div");
 
     console.log("ajax function running");
     var parks = parkPage(response);
@@ -109,7 +112,6 @@ function populateState(stateCode) {
     });
     $("#selectState").val(stateCode);
     stateCode.push(response.data.contacts.fullName);
-    var parkList = response.data.contacts.fullName;
   });
 }
 //function is called when ajax function runs inside the populateState function.

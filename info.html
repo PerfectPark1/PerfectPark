@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Font Awesome link-->
+    <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
+    <!-- icon -->
+    <link rel="shortcut icon" href="http://clipart-library.com/images_k/transparent-weather/transparent-weather-11.png">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- My style sheet -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Park Information</title>
+</head>
+
+<body>
+    <!-- Main heading -->
+    <header>
+        <div class="container-fluid">
+            <!-- the h1 needs to be the name of the park chosen -->
+            <h1 id=""></h1>
+            <h4>
+                Below, you can find information about this park's weather, amenities, and more!
+            </h4>
+        </div>
+    </header>
+    <!-- End Main heading -->
+
+    <!-- Start container -->
+    <div class="container">
+        <!-- Start row -->
+        <div class="row">
+        </div>
+        <!-- Current Weather Card -->
+        <div class="d-flex">
+            <!-- Start column -->
+            <div class="col-sm-9">
+                <div id="currentCity"></div>
+            </div>
+            <!-- End card -->
+        </div>
+    </div>
+
+    <!-- End Row -->
+
+    <!-- Start forecast container -->
+    <div class="mt-4 col-md-12">
+        <h5 id="forecastH5"></h5>
+
+        <!-- Start row -->
+        <div id="forecast" class="row mb-6"></div>
+        <!-- End row -->
+    </div>
+    <!-- End forecast container -->
+    <!-- End container -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
