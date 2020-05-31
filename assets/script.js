@@ -72,9 +72,9 @@ for (var i = 0; i < stateCode.length; i++) {
 }
 // Makes submit button only targed the specific state.
 $(document).ready(function () {
+
 	$("#submitBtn").on("click", function () {
 		let stateCode = $("#selectState option:selected").text();
-		console.log(stateCode);
 		// Makes the api only pull data for the state selected.
 		populateState(stateCode);
 	});
@@ -88,29 +88,25 @@ function populateState(stateCode) {
 		"https://developer.nps.gov/api/v1/parks?api_key=UOZg2ZNMkNetItkWpIxQwpmJ7DHBTIjPiNZQjxYo" +
 		"&stateCode=" +
 		stateCode;
-	console.log("good");
 
 
   // append a loading icon here
   $(".loaderIcon").append(`<div class="loader"></div>`);
-
   $.ajax({
     url: NPSqueryURL,
     method: "GET",
   }).then(function (response) {
 
     // remove the loading icon here
-    $(".loaderIcon").remove("div");
+	$(".loaderIcon").remove("div");
+	$("#state-name").text(stateCode);
 
-
-		console.log("ajax function running");
 		var parks = parkPage(response);
 		$(".parks").append(`
-		<div class="card" id="myCard"></div>
+		<div class="row" id="myCard"></div>
 	`);
 
     parks.forEach(function (park) {
-      console.log(park);
       $("#myCard").append(park);
     });
     $("#selectState").val(stateCode);
@@ -120,7 +116,6 @@ function populateState(stateCode) {
 }
 //function is called when ajax function runs inside the populateState function.
 function parkPage(parksArray) {
-	console.log(parksArray);
 	// park page will take in an array of many parks and their info and return an array of ONLY the park names
 	return parksArray.data.map(function (park) {
 		console.log(park);
@@ -138,7 +133,7 @@ function parkPage(parksArray) {
 		console.log(lat);
 
 		return `
-			<div class="card">
+			<div class="card w3-third">
 				<div class="card-body">
 				<button class="park"  onclick="showParkInfo(this)">
 					<h1>${parkName}</h1>
