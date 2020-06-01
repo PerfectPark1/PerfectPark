@@ -6,6 +6,7 @@ html {
 	font-family: "Josefin Sans", sans-serif;
 	background-image: url("badlands.jpeg");
 	background-position: center;
+	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -115,7 +116,7 @@ img {
 }
 
 .subtitle-homepage {
-	background: rgba(137, 166, 106, 0.5662640056022409) 78%;
+	background: rgba(137, 166, 106, 0.89) 78%;
 	padding: 3%;
 	font-size: small;
 }
@@ -162,4 +163,9 @@ img {
 
 .parks {
 	padding: 3% 3%;
+}
+
+.parkInfo {
+	color: white;
+	font-weight: 900;
 }
