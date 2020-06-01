@@ -91,7 +91,8 @@ function populateState(stateCode) {
 
 
   // append a loading icon here
-  $(".loaderIcon").append(`<div class="loader"></div>`);
+  $(".loaderIcon").append(`<div class="w3-center loader"></div>`);
+  $(".txtLoading").html("LOADING...");
   $.ajax({
     url: NPSqueryURL,
     method: "GET",
