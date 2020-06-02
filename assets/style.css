@@ -4,12 +4,22 @@ html {
 	height: 100%;
 	background: rgba(228, 228, 228, 1);
 	font-family: "Josefin Sans", sans-serif;
-	background-image: url("badlands.jpg");
+	background-image: url("badlands.jpeg");
 	background-position: center;
+	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
+<<<<<<< HEAD
+=======
+h1 {
+	color: black;
+	text-shadow: 0px 0px 10px white;
+
+}
+
+>>>>>>> 0f27fdb7f9e87206bc5690b1db6dc6b2732b195b
 .title {
 	justify-content: center;
 }
@@ -109,7 +119,7 @@ img {
 }
 
 .subtitle-homepage {
-	background: rgba(137, 166, 106, 0.5662640056022409) 78%;
+	background: rgba(137, 166, 106, 0.89) 78%;
 	padding: 3%;
 	font-size: small;
 }
@@ -157,3 +167,11 @@ img {
 .parks {
 	padding: 3% 3%;
 }
+<<<<<<< HEAD
+=======
+
+.parkInfo {
+	color: white;
+	font-weight: 900;
+}
+>>>>>>> 0f27fdb7f9e87206bc5690b1db6dc6b2732b195b
