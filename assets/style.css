@@ -4,22 +4,14 @@ html {
 	height: 100%;
 	background: rgba(228, 228, 228, 1);
 	font-family: "Josefin Sans", sans-serif;
-	background-image: url("badlands.jpeg");
-	background-position: center;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
+	background: linear-gradient(
+		90deg,
+		rgba(152, 240, 240, 1) 0%,
+		rgba(228, 238, 221, 1) 50%,
+		rgba(183, 222, 191, 1) 100%
+	);
 }
 
-<<<<<<< HEAD
-=======
-h1 {
-	color: black;
-	text-shadow: 0px 0px 10px white;
-
-}
-
->>>>>>> 0f27fdb7f9e87206bc5690b1db6dc6b2732b195b
 .title {
 	justify-content: center;
 }
@@ -79,43 +71,11 @@ img {
 	background-color: #717171;
 }
 
-/* Fading animation */
-.fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 1.5s;
-	animation-name: fade;
-	animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-	from {
-		opacity: 0.3;
-	}
-
-	to {
-		opacity: 0.9;
-	}
-}
-
-@keyframes fade {
-	from {
-		opacity: 0.3;
-	}
-
-	to {
-		opacity: 0.9;
-	}
-}
-
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
 	.text {
 		font-size: 11px;
 	}
-}
-
-.w3-hide-large {
-	font-size: x-large;
 }
 
 .subtitle-homepage {
@@ -129,22 +89,6 @@ img {
 }
 
 /* park list */
-.loader {
-	border: 8px solid rgba(247, 247, 247, 0.48503151260504207);
-	/* transparent */
-	border-top: 8px solid rgb(247, 247, 247);
-	/* white */
-	border-radius: 50%;
-	width: 60px;
-	height: 60px;
-	animation: spin 2s linear infinite;
-	align-items: center;
-}
-
-.loaderIcon {
-	max-width: fit-content;
-	padding-left: 3%;
-}
 
 .txtLoading {
 	color: #ffffff;
@@ -167,11 +111,3 @@ img {
 .parks {
 	padding: 3% 3%;
 }
-<<<<<<< HEAD
-=======
-
-.parkInfo {
-	color: white;
-	font-weight: 900;
-}
->>>>>>> 0f27fdb7f9e87206bc5690b1db6dc6b2732b195b
