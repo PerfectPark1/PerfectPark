@@ -2,7 +2,6 @@
 body,
 html {
 	height: 100%;
-	background: rgba(228, 228, 228, 1);
 	font-family: "Josefin Sans", sans-serif;
 	background: linear-gradient(
 		90deg,
@@ -10,6 +9,52 @@ html {
 		rgba(228, 238, 221, 1) 50%,
 		rgba(183, 222, 191, 1) 100%
 	);
+}
+
+body {
+	background: url("./bike.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+nav {
+}
+
+#container {
+	background: rgba(0, 0, 0, 0.4);
+	background-size: cover;
+	height: 100vh;
+}
+
+header {
+	text-align: center;
+	color: whitesmoke;
+}
+
+#selectState {
+	display: block !important;
+	text-align: center;
+}
+
+.selectOptions {
+	text-align: center;
+	width: 100%;
+}
+
+select {
+	text-align: center;
+	text-align-last: center;
+	width: 200px;
+	padding-right: 30px;
+	margin: 0 auto;
+}
+
+.btn {
+	font-family: "Josefin Sans", sans-serif !important;
+	letter-spacing: 2px;
+}
+
+option {
+	text-align: center;
 }
 
 .title {
@@ -28,10 +73,10 @@ html {
 	display: none;
 }
 
-img {
+/* img {
 	vertical-align: middle;
 	max-height: min-content;
-}
+} */
 
 /* Slideshow container */
 .slideshow-container {
@@ -78,15 +123,11 @@ img {
 	}
 }
 
-.subtitle-homepage {
+/* .subtitle-homepage {
 	background: rgba(137, 166, 106, 0.89) 78%;
 	padding: 3%;
 	font-size: small;
-}
-
-.selectState {
-	margin: 1%;
-}
+} */
 
 /* park list */
 
