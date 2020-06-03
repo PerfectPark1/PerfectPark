@@ -11,12 +11,9 @@ html {
 	);
 }
 
-body {
+.home-background {
 	background: url("./bike.jpg") no-repeat center center fixed;
 	background-size: cover;
-}
-
-nav {
 }
 
 #container {
@@ -134,9 +131,17 @@ option {
 .txtLoading {
 	color: #ffffff;
 }
+.nav-wrapper{
+	background-color: forestgreen;
+}
 
 .card-body {
 	margin: 1%;
+}
+
+.below {
+	color: navy;
+	padding: 3%;
 }
 
 @keyframes spin {

@@ -159,6 +159,10 @@ function showParkInfo(e) {
 	$(e).siblings(".parkInfo").toggle();
 }
 
+$(document).ready(function(){
+    $('.slider').slider();
+  });
+
 // -------API call to the OpenWeather API---------------This code is fully functional.-----
 //--------No need to modify the weather section att.--------------------------------
 // const WapiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
