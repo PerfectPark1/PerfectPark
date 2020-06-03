@@ -72,7 +72,6 @@ for (var i = 0; i < stateCode.length; i++) {
 }
 // Makes submit button only targed the specific state.
 $(document).ready(function () {
-
 	$("#submitBtn").on("click", function () {
 		let stateCode = $("#selectState option:selected").text();
 		// Makes the api only pull data for the state selected.
@@ -89,31 +88,34 @@ function populateState(stateCode) {
 		"&stateCode=" +
 		stateCode;
 
+	// the lo
+	// 	<!-- <div class="progress">
+	// 	<div class="indeterminate"></div>
+	// 	<p class="txtLoading"></p>
+	//   </div>
 
-  // append a loading icon here
-  $(".loaderIcon").append(`<div class="w3-center loader"></div>`);
-  $(".txtLoading").html("LOADING...");
-  $.ajax({
-    url: NPSqueryURL,
-    method: "GET",
-  }).then(function (response) {
-
-    // remove the loading icon here
-	$(".loaderIcon").remove("div");
-	$("#state-name").text(stateCode);
+	// append a loading icon here
+	$(".loaderIcon").append(`<div class="indeterminate"></div>`);
+	$(".txtLoading").html("LOADING...");
+	$.ajax({
+		url: NPSqueryURL,
+		method: "GET",
+	}).then(function (response) {
+		// remove the loading icon here
+		$(".loaderIcon").remove("div");
+		$("#state-name").text(stateCode);
 
 		var parks = parkPage(response);
 		$(".parks").append(`
 		<div class="row" id="myCard"></div>
 	`);
 
-    parks.forEach(function (park) {
-      $("#myCard").append(park);
-    });
-    $("#selectState").val(stateCode);
-    stateCode.push(response.data.contacts.fullName);
-  });
-
+		parks.forEach(function (park) {
+			$("#myCard").append(park);
+		});
+		$("#selectState").val(stateCode);
+		stateCode.push(response.data.contacts.fullName);
+	});
 }
 //function is called when ajax function runs inside the populateState function.
 function parkPage(parksArray) {
@@ -156,6 +158,10 @@ function showParkInfo(e) {
 	console.log(e);
 	$(e).siblings(".parkInfo").toggle();
 }
+
+$(document).ready(function(){
+    $('.slider').slider();
+  });
 
 // -------API call to the OpenWeather API---------------This code is fully functional.-----
 //--------No need to modify the weather section att.--------------------------------

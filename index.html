@@ -1,75 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Perfect Park</title>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Corben:wght@700&family=Josefin+Sans:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="assets/icon.png" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <title>Perfect Park</title>
-  </head>
+<head>
+  <title>Perfect Park</title>
 
-  <body>
-    <!-- <div class="dropdown">
-        <button onclick="stateSelection()" class="dropbtn">Dropdown</button>
-        <div id="stateCode" class="dropdown-content">
-            <a href="./assets/script.js.stateCode"></a>
-            
-        </div>
-      </div> -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Fixed background img TBD -->
-    <!-- heading with some instructions -->
-  <div class="slideshow-container">
-    <header class="w3-display-container w3-grayscale-min" id="home">
-      <!-- <div class="w3-display-bottomleft w3-padding">
-        <span class="w3-tag w3-medium"
-          >By Stephanie, Jordan, Conner, and Kevin</span
-        >
-      </div> -->
-      <div class="mySlides fade">
-        <img src="assets/arches.jpeg" style="width:100%">
-        <div class="text">Image Courtesy of jewad alnabi and unsplash.com</div>
+  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Corben:wght@700&family=Josefin+Sans:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="home-background">
+
+  <div id="container">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Perfect Park</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="info.html">About Us</a></li>
+          <!-- <li><a href="badges.html">About us</a></li> -->
+          <li><a href="collapsible.html"></a></li>
+        </ul>
       </div>
-      <div class="mySlides fade">
-        <img src="assets/badlands.jpeg" style="width:100%">
-        <div class="text">Image Courtesy of @chimilphotos and unsplash.com</div>
-      </div>
-      <div class="mySlides fade">
-        <img src="assets/banff.jpeg" style="width:100%">
-        <div class="text">Image Courtesy of Kym MacKinnon and unsplash.com</div>
-      </div>
-      <div class="w3-display-middle w3-center">
-        <span class="w3-text-white w3-hide-small" style="font-size: 100px;"
-          >PERFECT PARK</span
-        >
-        <span
-          class="w3-text-white w3-hide-large w3-hide-medium"><b>PERFECT PARK</b></span>
-        <h4 class="subtitle-homepage">
+    </nav>
+
+    <header class="container">
+      <!-- Fixed background img TBD -->
+      <div class="">
+        <h1>Select your National Park</h1>
+        <!-- <span class="w3-text-white w3-hide-large w3-hide-medium title">PERFECT PARK</span> -->
+        <h4 class="subtitle-homepage" textarea="size">
           Select the state in which you would like to visit a National Park in!
         </h4>
-        <select id="selectState">
-          <option>Select a state</option>
-        </select>
+        <div class="selectOptions">
+          <select class="center-align" id="selectState">
+            <option class="center-align">Select a state</option>
+          </select>
+        </div>
         <br />
-        <button id="submitBtn">Search</button>
-      </div>
-      <div class="w3-display-topleft loaderIcon">
-        <p class="txtLoading"></p>
-      </div>
-      <div class="slideDots">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
+
+        <!-- <button class="btn waves-effect waves-light" id="submitBtn" type="submit" name="action"> Search<i
+            class="material-icons center"><span class="material-icons">
+              search
+            </span></i>
+        </button> -->
+
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="submitBtn">Search
+          <i class="material-icons right">search</i>
+        </button>
       </div>
     </header>
-  </div>
+
+
+
     <!-- End Main heading -->
     <!-- list out all the parks  -->
 
@@ -88,27 +79,27 @@
       <!-- <div class="row"> -->
       <!-- Start column -->
       <!-- <embed class="col-lg-3 bg-light pt-3 pb-3 mx-auto">
-                <h5>Search for a city:</h5> -->
+                  <h5>Search for a city:</h5> -->
 
       <!-- Start input group -->
       <!-- <div class="input-group mb-3 input-group-append" input id="searchCity" type="text" placeholder="City name">
-                    <button id="searchBtn button-addon2" class="btn btn-primary mt-3" type="button">
-                        <i class="far fa-search">Search</i>
-                    </button>
-                </div> -->
+                      <button id="searchBtn button-addon2" class="btn btn-primary mt-3" type="button">
+                          <i class="far fa-search">Search</i>
+                      </button>
+                  </div> -->
       <!-- End column -->
       <!-- <div class="d-flex"> -->
       <!-- Start column -->
       <!-- <div class="col-sm-9">
-                    <div id="currentCity"></div>
-                </div> -->
+                      <div id="currentCity"></div>
+                  </div> -->
       <!-- End column -->
 
       <!-- History card -->
       <!-- <div class="card d-flex col-sm-3">
-                    <strong>History</strong>
-                    <ul id="cityList" class="list-group list-group-flush list"></ul>
-                </div> -->
+                      <strong>History</strong>
+                      <ul id="cityList" class="list-group list-group-flush list"></ul>
+                  </div> -->
       <!-- End card -->
       <!-- </div> -->
       <!-- </div> -->
@@ -127,12 +118,16 @@
       </div>
       <!-- End forecast container -->
     </div>
-    
-    <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="slides.js"></script>
-    <script src="assets/script.js" type="text/javascript"></script>
-  </body>
+  </div>
+
+
+  <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- <script src="slides.js"></script> -->
+  <script src="./assets/script.js" type="text/javascript"></script>
+</body>
+
 </html>
