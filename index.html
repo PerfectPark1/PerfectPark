@@ -13,7 +13,8 @@
   <link rel="icon" href="assets/icon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="assets/style.css" />
 </head>
@@ -23,18 +24,20 @@
   <div id="container">
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Perfect Park</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="info.html">About Us</a></li>
-          <!-- <li><a href="badges.html">About us</a></li> -->
-          <li><a href="collapsible.html"></a></li>
+        <img src="./assets/icon.png" width="50" style="margin:0 10px;">
+        <a href="index.html" class="brand-logo">Perfect Park</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="info.html"><i class="material-icons">cloud</i></a></li>
+          <!-- <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+          <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+          <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li> -->
         </ul>
       </div>
     </nav>
 
     <header class="container">
       <!-- Fixed background img TBD -->
-      <div class="">
+      <div class="centerMiddle">
         <h1>Select your National Park</h1>
         <!-- <span class="w3-text-white w3-hide-large w3-hide-medium title">PERFECT PARK</span> -->
         <h4 class="subtitle-homepage" textarea="size">
@@ -53,81 +56,42 @@
             </span></i>
         </button> -->
 
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="submitBtn">Search
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="submitBtn" action="#parks">Search
           <i class="material-icons right">search</i>
         </button>
       </div>
     </header>
 
+  </div>
 
+  <!-- End Main heading -->
+  <!-- list out all the parks  -->
 
-    <!-- End Main heading -->
-    <!-- list out all the parks  -->
+  <!-- once you click on a park, it shows the weather -->
 
-    <!-- once you click on a park, it shows the weather -->
+  <!-- dropdown list of states -->
 
-    <!-- dropdown list of states -->
+  <!-- weather info:  Jordan's killer weather app  This should be-------------->
+  <!-- Start container -->
+  <div class="parks row" id="parks"></div>
 
-    <!-- weather info:  Jordan's killer weather app  This should be-------------->
-    <!-- Start container -->
-    <div class="parks"></div>
-    <div class="container">
-      <div>
-        <p id="currentDay"></p>
-      </div>
-      <!-- Start row -->
-      <!-- <div class="row"> -->
-      <!-- Start column -->
-      <!-- <embed class="col-lg-3 bg-light pt-3 pb-3 mx-auto">
-                  <h5>Search for a city:</h5> -->
-
-      <!-- Start input group -->
-      <!-- <div class="input-group mb-3 input-group-append" input id="searchCity" type="text" placeholder="City name">
-                      <button id="searchBtn button-addon2" class="btn btn-primary mt-3" type="button">
-                          <i class="far fa-search">Search</i>
-                      </button>
-                  </div> -->
-      <!-- End column -->
-      <!-- <div class="d-flex"> -->
-      <!-- Start column -->
-      <!-- <div class="col-sm-9">
-                      <div id="currentCity"></div>
-                  </div> -->
-      <!-- End column -->
-
-      <!-- History card -->
-      <!-- <div class="card d-flex col-sm-3">
-                      <strong>History</strong>
-                      <ul id="cityList" class="list-group list-group-flush list"></ul>
-                  </div> -->
-      <!-- End card -->
-      <!-- </div> -->
-      <!-- </div> -->
-
-      <!-- End row -->
-
-      <!-- Start forecast container -->
-      <div class="mt-4 col-md-12">
-        <h5 id="forecastH5" class="mt-3" style="display: none;">
-          5-Day Forecast:
-        </h5>
-
-        <!-- Start row -->
-        <div id="forecast" class="row mb-6"></div>
-        <!-- End row -->
-      </div>
-      <!-- End forecast container -->
-    </div>
   </div>
 
 
   <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- <script src="slides.js"></script> -->
   <script src="./assets/script.js" type="text/javascript"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('.tabs').tabs();
+    });
+
+  </script>
 </body>
 
 </html>

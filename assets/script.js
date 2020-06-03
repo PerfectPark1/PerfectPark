@@ -127,6 +127,7 @@ function parkPage(parksArray) {
 		const directions = park.directionsUrl;
 		const lon = park.longitude;
 		const lat = park.latitude;
+		const description = park.description;
 
 		console.log(parkName);
 		console.log(hours);
@@ -136,20 +137,21 @@ function parkPage(parksArray) {
 		console.log(lat);
 
 		return `
-			<div class="card w3-third">
-				<div class="card-body">
-				<button class="park"  onclick="showParkInfo(this)">
-					<h1>${parkName}</h1>
-        </button>
-        <p class="parkInfo" style = "display:none;" >
-        Hours: ${hours} <br>
-        Directions: <a href='${directions}' target="_blank">Click for directions</a> <br>
-        Longitude: ${lon} Latitude: ${lat}
-        
-        
-        </p>
-				</div>
+		<div class="col s12 m6 l4">
+		<div class="card small">
+			<div class="card-content">
+				<h4>${parkName}</h4>
 			</div>
+			<div class="card-content">
+			<span class="card-title activator grey-text text-darken-4">${hours}<i class="material-icons right">more_vert</i></span>
+			<p><a href="${directions}">Directions</a></p>
+		  </div>
+		  <div class="card-reveal">
+			<span class="card-title grey-text text-darken-4">${parkName}<i class="material-icons right">close</i></span>
+			<p>${description}</p>
+		  </div>		
+		  </div>
+		  </div>
 		`;
 	});
 }
@@ -159,9 +161,9 @@ function showParkInfo(e) {
 	$(e).siblings(".parkInfo").toggle();
 }
 
-$(document).ready(function(){
-    $('.slider').slider();
-  });
+$(document).ready(function () {
+	$(".slider").slider();
+});
 
 // -------API call to the OpenWeather API---------------This code is fully functional.-----
 //--------No need to modify the weather section att.--------------------------------
