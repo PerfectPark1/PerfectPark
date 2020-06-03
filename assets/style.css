@@ -143,6 +143,10 @@ option {
 	color: navy;
 	padding: 3%;
 }
+.carousel{
+	background-color: lightslategray;
+
+}
 
 @keyframes spin {
 	0% {

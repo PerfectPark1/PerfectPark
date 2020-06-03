@@ -70,41 +70,38 @@
 
     <!-- Start forecast container -->
     <div class="forecast container">
-        <h6>Today's Current Forecast:</h6>
+        <h6>Swipe left and right to see your 5 Day Forecast!</h6>
         <!-- Start row -->
         <div class="row">
-            <!-- forecast for T + 1 day -->
-            <div class="col-s3" id="day1">
-                <p id="date1"></p>
-            <!-- weather icon for that day -->
-                <img class="icon1" />
-                <!-- temperature for that day -->
-                <p id="temp1"></p>
-            </div>
-            <!-- forecast for T + 2 days -->
-            <div class="col-s3" id="day2">
-                <p id="date2"></p>
-                <!-- weather icon for that day -->
-                    <img class="icon2" />
-                    <!-- temperature for that day -->
-                    <p id="temp2"></p>
+            <div class="carousel carousel-slider center">
+                <div class="carousel-fixed-item center">
                 </div>
-            <!-- forecast for T + 3 days -->
-            <div class="col-s3" id="day3">
-                <p id="date3"></p>
-                <!-- weather icon for that day -->
-                    <img class="icon3" />
-                    <!-- temperature for that day -->
-                    <p id="temp3"></p>
+                <div class="carousel-item blue white-text" href="#one!">
+                  <h2 id="date1">June 3rd, 2020</h2>
+                  <img class="icon1">
+                  <p class="temp1 white-text"></p>
                 </div>
-            <!-- forecast for T + 4 days -->
-            <div class="col-s3" id="day4">
-                <p id="date4"></p>
-                <!-- weather icon for that day -->
-                    <img class="icon4" />
-                    <!-- temperature for that day -->
-                    <p id="temp4"></p>
-                </div>
+                  <div class="carousel-item blue white-text" href="#two!">
+                    <h2 id="date2"></h2>
+                    <img class="icon2">
+                    <p class="temp2 white-text"></p>
+                  </div>
+                  <div class="carousel-item blue white-text" href="#three!">
+                    <h2 id="date3"></h2>
+                    <img class="icon3">
+                    <p class="temp3 white-text"></p>
+                  </div>
+                  <div class="carousel-item blue white-text" href="#four!">
+                    <h2 id="date4"></h2>
+                    <img class="icon4">
+                    <p class="temp4 white-text"></p>
+                  </div>
+                  <div class="carousel-item blue white-text" href="#five!">
+                    <h2 id="date5"></h2>
+                    <img class="icon5">
+                    <p class="temp5 white-text"></p>
+                  </div>
+              </div>
         </div>
     </div>
         <!-- End forecast container -->
@@ -112,6 +109,7 @@
         <div class="row">
             <h5>Map:</h5>
             <div class="map-display">
+                <img class="materialboxed" width="650" src="assets/mapexample.png">
             </div>
         </div>
     <!-- end map section -->
