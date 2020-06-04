@@ -62,14 +62,19 @@ var stateCode = [
 	"WI",
 	"WY",
 ];
+
 // Populates the dropdown with array from stateCode.
-for (var i = 0; i < stateCode.length; i++) {
-	var opt = stateCode[i];
-	var el = document.createElement("option");
-	el.setAttribute("value", opt);
-	el.textContent = opt;
-	select.appendChild(el);
+// This will prevent the appendChild function from causing errors
+if (select) {
+	for (var i = 0; i < stateCode.length; i++) {
+		var opt = stateCode[i];
+		var el = document.createElement("option");
+		el.setAttribute("value", opt);
+		el.textContent = opt;
+		select.appendChild(el);
+	}
 }
+
 // Makes submit button only targed the specific state.
 $(document).ready(function () {
 	$("#submitBtn").on("click", function () {
@@ -121,6 +126,7 @@ function parkPage(parksArray) {
 		const directions = park.directionsUrl;
 		const lon = park.longitude;
 		const lat = park.latitude;
+		const description = park.description;
 
 		console.log(parkName);
 		console.log(hours);
@@ -130,20 +136,22 @@ function parkPage(parksArray) {
 		console.log(lat);
 
 		return `
-			<div class="card w3-third">
-				<div class="card-body">
-				<button class="park"  onclick="showParkInfo(this)">
-					<h1>${parkName}</h1>
-        </button>
-        <p class="parkInfo" style = "display:none;" >
-        Hours: ${hours} <br>
-        Directions: <a href='${directions}' target="_blank">Click for directions</a> <br>
-        Longitude: ${lon} Latitude: ${lat}
-        
-        
-        </p>
-				</div>
+		<div class="col s12 m6 l4">
+		<div class="card small">
+			<div class="card-content">
+				<h4>${parkName}</h4>
 			</div>
+			<div class="card-content">
+			<span class="card-title activator grey-text text-darken-4">${hours}<i class="material-icons right">more_vert</i></span>
+			<p><a href="${directions}">Directions</a></p>
+			<p><a href="info.html?lat=${lat}&lng=${lon}">Weather, Map, and Photos</a></p>
+		  </div>
+		  <div class="card-reveal">
+			<span class="card-title grey-text text-darken-4">${parkName}<i class="material-icons right">close</i></span>
+			<p>${description}</p>
+		  </div>		
+		  </div>
+		  </div>
 		`;
 	});
 }
@@ -153,36 +161,28 @@ function showParkInfo(e) {
 	$(e).siblings(".parkInfo").toggle();
 }
 
-$(document).ready(function () {
-	$(".slider").slider();
-});
+// $(document).ready(function () {
+// 	$(".slider").slider();
+// });
+// //----------------------------before this is a branch-master dispute------------------
 
-//on click event to get the data val of lon lat
-
-// google maps api
-var map = new google.maps.Map(document.getElementById("map"), {
-	//  fix to pull from above lat/lon
-	center: { lat, lon },
-	zoom: 8,
-});
-
-// -------API call to the OpenWeather API---------------This code is fully functional.-----
-// --------No need to modify the weather section att.--------------------------------
-const WapiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
-const WqueryURL =
-	"https://api.openweathermap.org/data/2.5/weather?lat=" +
-	lat +
-	"&lon=" +
-	lon +
-	"&appid=" +
-	WapiKey;
-$.ajax({
-	url: queryUrl,
-	method: "GET",
-}).then(function (response) {
-	// select city of park pulled up
-	parkWeather(response);
-});
+// // -------API call to the OpenWeather API---------------This code is fully functional.-----
+// // --------No need to modify the weather section att.--------------------------------
+// const WapiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
+// const WqueryURL =
+// 	"https://api.openweathermap.org/data/2.5/weather?lat=" +
+// 	lat +
+// 	"&lon=" +
+// 	lon +
+// 	"&appid=" +
+// 	WapiKey;
+// $.ajax({
+// 	url: queryUrl,
+// 	method: "GET",
+// }).then(function (response) {
+// 	// select city of park pulled up
+// 	parkWeather(response);
+// });
 
 function parkWeather(response) {
 	// get the temperature and convert to fahrenheit
@@ -221,7 +221,7 @@ function parkWeather(response) {
 	$("").append(card);
 	//   * UV index
 	// Pulling lon, lat info to uvIndex
-	uvIndex(lon, lat);
+	// uvIndex(lon, lat);
 
 	function uvIndex(lon, lat) {
 		// SEARCHES
@@ -265,7 +265,3 @@ function parkWeather(response) {
 		});
 	}
 }
-
-// ---------------------MAPS CODE begin HERE----------------------
-
-// ---------------------MAPS CODE ends HERE-----------------------

@@ -80,15 +80,16 @@
         </div>
     </div>
         <!-- End forecast container -->
+
     <!-- start map section -->
         <div class="row">
             <h5>Map:</h5>
-            <div class="map-display">
-                <img class="materialboxed" width="650" src="assets/mapexample.png">
+            <div id="map-display">
             </div>
         </div>
     <!-- end map section -->
     <!-- start photos section -->
+  <div class="container">
     <div class="row">
         <h5>Photos from the Park!</h5>
         <div class="photos-display">
@@ -119,6 +120,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/script.js"></script>
+    <script src="assets/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns&callback=initMap"
+    type="text/javascript"></script>
 </body>
 
 </html>

@@ -161,3 +161,6 @@ option {
 .parks {
 	padding: 3% 3%;
 }
+#map {
+	height: 100%;
+  }
