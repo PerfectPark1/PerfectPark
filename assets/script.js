@@ -121,6 +121,7 @@ function parkPage(parksArray) {
 		const directions = park.directionsUrl;
 		const lon = park.longitude;
 		const lat = park.latitude;
+		const description = park.description;
 
 		console.log(parkName);
 		console.log(hours);
@@ -128,22 +129,90 @@ function parkPage(parksArray) {
 		// console.log(item.activities[""].names);
 		console.log(lon);
 		console.log(lat);
+		// mapboxgl.accessToken = 'pk.eyJ1IjoiY21jYnJpZGUwOSIsImEiOiJja2F6dWpubTAwMjR3MzBwcHE5dmJvaDA1In0.UJbD1XzftoijH31XRb0D3w';
+		// var map = new mapboxgl.Map({
+		// 	container: 'map',
+		// 	style: 'mapbox://styles/mapbox/streets-v11',
+		// 	center: [-79.4512, 43.6568],
+		// 	zoom: 13
+		// });
+
+		// /* given a query in the form "lng, lat" or "lat, lng" returns the matching
+		// * geographic coordinate(s) as search results in carmen geojson format,
+		// * https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
+		// */
+		// var coordinatesGeocoder = function (query) {
+		// 	// match anything which looks like a decimal degrees coordinate pair
+		// 	var matches = query.match(
+		// 		/^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
+		// 	);
+		// 	if (!matches) {
+		// 		return null;
+		// 	}
+
+		// 	function coordinateFeature(lng, lat) {
+		// 		return {
+		// 			center: [lng, lat],
+		// 			geometry: {
+		// 				type: 'Point',
+		// 				coordinates: [lng, lat]
+		// 			},
+		// 			place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+		// 			place_type: ['coordinate'],
+		// 			properties: {},
+		// 			type: 'Feature'
+		// 		};
+		// 	}
+
+		// 	var coord1 = Number(matches[1]);
+		// 	var coord2 = Number(matches[2]);
+		// 	var geocodes = [];
+
+		// 	if (coord1 < -90 || coord1 > 90) {
+		// 		// must be lng, lat
+		// 		geocodes.push(coordinateFeature(coord1, coord2));
+		// 	}
+
+		// 	if (coord2 < -90 || coord2 > 90) {
+		// 		// must be lat, lng
+		// 		geocodes.push(coordinateFeature(coord2, coord1));
+		// 	}
+
+		// 	if (geocodes.length === 0) {
+		// 		// else could be either lng, lat or lat, lng
+		// 		geocodes.push(coordinateFeature(coord1, coord2));
+		// 		geocodes.push(coordinateFeature(coord2, coord1));
+		// 	}
+
+		// 	return geocodes;
+		// };
+
+		// map.addControl(
+		// 	new MapboxGeocoder({
+		// 		accessToken: mapboxgl.accessToken,
+		// 		localGeocoder: coordinatesGeocoder,
+		// 		zoom: 4,
+		// 		placeholder: 'Try: -40, 170',
+		// 		mapboxgl: mapboxgl
+		// 	})
+		// );
 
 		return `
-			<div class="card w3-third">
-				<div class="card-body">
-				<button class="park"  onclick="showParkInfo(this)">
-					<h1>${parkName}</h1>
-        </button>
-        <p class="parkInfo" style = "display:none;" >
-        Hours: ${hours} <br>
-        Directions: <a href='${directions}' target="_blank">Click for directions</a> <br>
-        Longitude: ${lon} Latitude: ${lat}
-        
-        
-        </p>
-				</div>
+		<div class="col s12 m6 l4">
+		<div class="card small">
+			<div class="card-content">
+				<h4>${parkName}</h4>
 			</div>
+			<div class="card-content">
+			<span class="card-title activator grey-text text-darken-4">${hours}<i class="material-icons right">more_vert</i></span>
+			<p><a href="${directions}">Directions</a></p>
+		  </div>
+		  <div class="card-reveal">
+			<span class="card-title grey-text text-darken-4">${parkName}<i class="material-icons right">close</i></span>
+			<p>${description}</p>
+		  </div>		
+		  </div>
+		  </div>
 		`;
 	});
 }
@@ -157,14 +226,16 @@ $(document).ready(function () {
 	$(".slider").slider();
 });
 
-//on click event to get the data val of lon lat
 
+//on click event to get the data val of lon lat
+//----------------------------this is a branch-master dispute------------------
 // google maps api
 var map = new google.maps.Map(document.getElementById("map"), {
 	//  fix to pull from above lat/lon
 	center: { lat, lon },
 	zoom: 8,
 });
+//----------------------------before this is a branch-master dispute------------------
 
 // -------API call to the OpenWeather API---------------This code is fully functional.-----
 // --------No need to modify the weather section att.--------------------------------
