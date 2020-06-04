@@ -131,7 +131,7 @@ option {
 .txtLoading {
 	color: #ffffff;
 }
-.nav-wrapper{
+.nav-wrapper {
 	background-color: forestgreen;
 }
 
@@ -143,9 +143,8 @@ option {
 	color: navy;
 	padding: 3%;
 }
-.carousel{
+.carousel {
 	background-color: lightslategray;
-
 }
 
 @keyframes spin {
@@ -161,6 +160,15 @@ option {
 .parks {
 	padding: 3% 3%;
 }
-#map {
+
+#map-display {
 	height: 100%;
   }
+
+.centerMiddle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
