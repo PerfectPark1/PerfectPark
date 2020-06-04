@@ -161,6 +161,10 @@ option {
 	padding: 3% 3%;
 }
 
+#map-display {
+	height: 100%;
+  }
+
 .centerMiddle {
 	position: absolute;
 	top: 50%;

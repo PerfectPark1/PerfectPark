@@ -62,14 +62,19 @@ var stateCode = [
 	"WI",
 	"WY",
 ];
+
 // Populates the dropdown with array from stateCode.
-for (var i = 0; i < stateCode.length; i++) {
-	var opt = stateCode[i];
-	var el = document.createElement("option");
-	el.setAttribute("value", opt);
-	el.textContent = opt;
-	select.appendChild(el);
+// This will prevent the appendChild function from causing errors
+if (select) {
+	for (var i = 0; i < stateCode.length; i++) {
+		var opt = stateCode[i];
+		var el = document.createElement("option");
+		el.setAttribute("value", opt);
+		el.textContent = opt;
+		select.appendChild(el);
+	}
 }
+
 // Makes submit button only targed the specific state.
 $(document).ready(function () {
 	$("#submitBtn").on("click", function () {
@@ -206,6 +211,7 @@ function parkPage(parksArray) {
 			<div class="card-content">
 			<span class="card-title activator grey-text text-darken-4">${hours}<i class="material-icons right">more_vert</i></span>
 			<p><a href="${directions}">Directions</a></p>
+			<p><a href="info.html?lat=${lat}&lng=${lon}">Weather, Map, and Photos</a></p>
 		  </div>
 		  <div class="card-reveal">
 			<span class="card-title grey-text text-darken-4">${parkName}<i class="material-icons right">close</i></span>
@@ -221,6 +227,29 @@ function showParkInfo(e) {
 	console.log(e);
 	$(e).siblings(".parkInfo").toggle();
 }
+
+// $(document).ready(function () {
+// 	$(".slider").slider();
+// });
+// //----------------------------before this is a branch-master dispute------------------
+
+// // -------API call to the OpenWeather API---------------This code is fully functional.-----
+// // --------No need to modify the weather section att.--------------------------------
+// const WapiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
+// const WqueryURL =
+// 	"https://api.openweathermap.org/data/2.5/weather?lat=" +
+// 	lat +
+// 	"&lon=" +
+// 	lon +
+// 	"&appid=" +
+// 	WapiKey;
+// $.ajax({
+// 	url: queryUrl,
+// 	method: "GET",
+// }).then(function (response) {
+// 	// select city of park pulled up
+// 	parkWeather(response);
+// });
 
 $(document).ready(function () {
 	$(".slider").slider();
@@ -292,7 +321,7 @@ function parkWeather(response) {
 	$("").append(card);
 	//   * UV index
 	// Pulling lon, lat info to uvIndex
-	uvIndex(lon, lat);
+	// uvIndex(lon, lat);
 
 	function uvIndex(lon, lat) {
 		// SEARCHES
@@ -336,7 +365,3 @@ function parkWeather(response) {
 		});
 	}
 }
-
-// ---------------------MAPS CODE begin HERE----------------------
-
-// ---------------------MAPS CODE ends HERE-----------------------

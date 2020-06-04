@@ -23,19 +23,6 @@
   <link rel="stylesheet" href="assets/style.css" />
 
   <title>Park Information</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    #map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 50%;
-    }
-  </style>
 </head>
 
 <body>
@@ -78,6 +65,37 @@
           <img class="icon2">
           <p class="temp2 white-text"></p>
         </div>
+    </div>
+        <!-- End forecast container -->
+
+    <!-- start map section -->
+        <div class="row">
+            <h5>Map:</h5>
+            <div id="map-display">
+            </div>
+        </div>
+    <!-- end map section -->
+    <!-- start photos section -->
+  <div class="container">
+    <div class="row">
+        <h5>Photos from the Park!</h5>
+        <div class="photos-display">
+            <div class="slider">
+                <ul class="slides">
+                  <li>
+                    <img class="appendPhoto1"> <!-- random image -->
+                  </li>
+                  <li>
+                    <img class="appendPhoto2"> <!-- random image -->
+                  </li>
+                  <li>
+                    <img class="appendPhoto3"> <!-- random image -->
+                  </li>
+                  <li>
+                    <img class="appendPhoto4"> <!-- random image -->
+                  </li>
+                </ul>
+              </div>
         <div class="carousel-item blue white-text" href="#three!">
           <h2 id="date3"></h2>
           <img class="icon3">
@@ -111,20 +129,6 @@
         style: 'mapbox://styles/mapbox/streets-v11'
       });
     </script> -->
-    <script
-      src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
-    <link rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
-      type="text/css" />
-    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-    <div id="map"></div>
-
-    <script>
-    </script>
-  </div>
-  <!-- end map section -->
   <!-- start photos section -->
   <div class="row">
     <h5>Photos from the Park!</h5>
@@ -158,6 +162,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/script.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/script.js"></script>
+    <script src="assets/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns&callback=initMap"
+    type="text/javascript"></script>
 </body>
 
 </html>

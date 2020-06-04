@@ -1,5 +1,60 @@
+  
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <title>Perfect Park</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Corben:wght@700&family=Josefin+Sans:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="home-background">
+
+  <div id="container">
+    <nav>
+      <div class="nav-wrapper">
+        <img src="./assets/icon.png" width="50" style="margin:0 10px;">
+        <a href="index.html" class="brand-logo">Perfect Park</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="info.html"><i class="material-icons">cloud</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="container">
+      <!-- Fixed background img TBD -->
+      <div class="centerMiddle">
+        <h1>Select your National Park</h1>
+        <!-- <span class="w3-text-white w3-hide-large w3-hide-medium title">PERFECT PARK</span> -->
+        <h4 class="subtitle-homepage" textarea="size">
+          Select the state in which you would like to visit a National Park in!
+        </h4>
+        <div class="selectOptions">
+          <select class="center-align" id="selectState">
+            <option class="center-align">Select a state</option>
+          </select>
+        </div>
+        <br />
+
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="submitBtn" action="#parks">Search
+          <i class="material-icons right">search</i>
+        </button>
+      </div>
+    </header>
+
+  </div>
+  <div class="parks row" id="parks"></div>
 
 <head>
   <title>Perfect Park</title>
