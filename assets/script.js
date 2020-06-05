@@ -165,28 +165,6 @@ function showParkInfo(e) {
 
 //----------------------------before this is a branch-master dispute------------------
 
-// -------API call to the OpenWeather API---------------This code is fully functional.-----
-// --------No need to modify the weather section att.--------------------------------
-const WapiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
-const WqueryURL =
-  "https://api.openweathermap.org/data/2.5/weather?lat=" +
-  lat +
-  "&lon=" +
-  lon +
-  "&appid=" +
-  WapiKey;
-$.ajax({
-  url: queryUrl,
-  method: "GET",
-}).then(function (response) {
-  // select city of park pulled up
-  parkWeather(response);
-});
-
-$(document).ready(function () {
-  $(".slider").slider();
-});
-
 //on click event to get the data val of lon lat
 //----------------------------this is a branch-master dispute------------------
 // google maps api
