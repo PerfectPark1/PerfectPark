@@ -3,17 +3,17 @@ body,
 html {
   height: 100%;
   font-family: "Josefin Sans", sans-serif;
-  background: linear-gradient(
-    90deg,
-    rgba(152, 240, 240, 1) 0%,
-    rgba(228, 238, 221, 1) 50%,
-    rgba(183, 222, 191, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(152, 240, 240, 1) 0%,
+      rgba(228, 238, 221, 1) 50%,
+      rgba(183, 222, 191, 1) 100%);
 }
+
 header {
   text-align: center;
   color: whitesmoke;
 }
+
 select {
   text-align: center;
   text-align-last: center;
@@ -21,38 +21,46 @@ select {
   padding-right: 30px;
   margin: 0 auto;
 }
+
 option {
   text-align: center;
 }
+
 /* id css */
 #container {
   background: rgba(0, 0, 0, 0.4);
   background-size: cover;
   height: 100vh;
 }
+
 #map-display {
   height: 100%;
 }
+
 #selectState {
   display: block !important;
   text-align: center;
 }
+
 #submitBtn {
   background-color: #21b14ad2;
 }
+
 /* class css */
 .nav-wrapper {
   background-color: #21b14ad2;
 }
+
 .home-background {
-  background: url("/images/Yellowstone-National-Park-USA.jpg") no-repeat center
-    center fixed;
+  background: url("../images/Yellowstone-National-Park-USA.jpg") no-repeat center center fixed;
   background-size: cover;
 }
+
 .selectOptions {
   text-align: center;
   width: 100%;
 }
+
 .btn {
   font-family: "Josefin Sans", sans-serif !important;
   letter-spacing: 2px;
@@ -65,14 +73,17 @@ option {
 .menu {
   display: none;
 }
+
 .mySlides {
   display: none;
 }
+
 /* Slideshow container */
 .slideshow-container {
   position: relative;
   margin: auto;
 }
+
 /* Caption text */
 .text {
   color: #f2f2f2;
@@ -83,28 +94,35 @@ option {
   width: 100%;
   text-align: left;
 }
+
 .active {
   background-color: #717171;
 }
+
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {
     font-size: 11px;
   }
 }
+
 .txtLoading {
   color: #ffffff;
 }
+
 .card-body {
   margin: 1%;
 }
+
 .below {
   color: navy;
   padding: 3%;
 }
+
 .carousel {
   background-color: lightslategray;
 }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -114,9 +132,11 @@ option {
     transform: rotate(360deg);
   }
 }
+
 .parks {
   padding: 3% 3%;
 }
+
 .centerMiddle {
   position: absolute;
   top: 50%;
