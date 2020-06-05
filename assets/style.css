@@ -45,7 +45,8 @@ option {
   background-color: #21b14ad2;
 }
 .home-background {
-  background: url("./bike.jpg") no-repeat center center fixed;
+  background: url("/images/Yellowstone-National-Park-USA.jpg") no-repeat center
+    center fixed;
   background-size: cover;
 }
 .selectOptions {
