@@ -70,16 +70,15 @@
           <img class="icon2">
           <p class="temp2 white-text"></p>
         </div>
-      </div>
     </div>
         <!-- End forecast container -->
 
     <!-- start map section -->
-    <h5 id="map-title">Map:</h5>
-    <div class="container-map"> 
+        <div class="row">
+            <h5>Map:</h5>
             <div id="map-display">
             </div>
-    </div>  
+        </div>
     <!-- end map section -->
     <!-- start photos section -->
   <div class="container">
@@ -121,6 +120,48 @@
     </div>
   </div>
   <!-- End forecast container -->
+  <!-- start map section -->
+  <div class="row">
+    <h5>Map:</h5>
+    <!-- <div class="map-display">
+      <img class="materialboxed" width="650" src="assets/mapexample.png">
+    </div> -->
+    <!-- <div id='map' style='width: 400px; height: 300px;'></div>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiY21jYnJpZGUwOSIsImEiOiJja2F6dWpubTAwMjR3MzBwcHE5dmJvaDA1In0.UJbD1XzftoijH31XRb0D3w';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+      });
+    </script> -->
+  <!-- start photos section -->
+  <div class="row">
+    <h5>Photos from the Park!</h5>
+    <div class="photos-display">
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <img class="appendPhoto1"> <!-- random image -->
+          </li>
+          <li>
+            <img class="appendPhoto2"> <!-- random image -->
+          </li>
+          <li>
+            <img class="appendPhoto3"> <!-- random image -->
+          </li>
+          <li>
+            <img class="appendPhoto4"> <!-- random image -->
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <!-- end photos section -->
+  <!-- End container -->
+  </div>
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -129,9 +170,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/script.js"></script>
+    <script src="assets/map.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns&callback=initMap"
     type="text/javascript"></script>
-    <script async defer src="assets/script.js"></script>
 </body>
 
 </html>
