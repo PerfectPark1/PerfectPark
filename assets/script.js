@@ -94,15 +94,18 @@ function populateState(stateCode) {
     stateCode;
 
   // append a loading icon here
-  $(".loaderIcon").append(`<div class="indeterminate"></div>`);
-  $(".txtLoading").html("LOADING...");
+  $("header").hide();
+  $("#container").append(`<div id="loadingIcon" class="progress">
+  <div class="indeterminate"></div>
+</div>`);
 
   $.ajax({
     url: NPSqueryURL,
     method: "GET",
   }).then(function (response) {
     // remove the loading icon here
-    $(".loaderIcon").remove("div");
+    $("#loadingIcon").hide();
+    $("header").show();
 
     $("#state-name").text(stateCode);
 
@@ -168,25 +171,25 @@ function showParkInfo(e) {
 //on click event to get the data val of lon lat
 //----------------------------this is a branch-master dispute------------------
 // google maps api
-var map = new google.maps.Map(document.getElementById("map"), {
-  //  fix to pull from above lat/lon
-  center: { lat, lon },
-  zoom: 8,
-});
+// var map = new google.maps.Map(document.getElementById("map"), {
+//   //  fix to pull from above lat/lon
+//   center: { lat, lon },
+//   zoom: 8,
+// });
 
 // ---------------------MAPS CODE begin HERE----------------------
 // Google Maps API key = AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns
 
-var map;
-function initMap() {
-  const params = new URLSearchParams(window.location.search);
-  const lat = parseFloat(params.get("lat"));
-  const lng = parseFloat(params.get("lng"));
-  map = new google.maps.Map(document.getElementById("map-display"), {
-    center: { lat, lng },
-    zoom: 8,
-  });
-}
+// var map;
+// function initMap() {
+//   const params = new URLSearchParams(window.location.search);
+//   const lat = parseFloat(params.get("lat"));
+//   const lng = parseFloat(params.get("lng"));
+//   map = new google.maps.Map(document.getElementById("map-display"), {
+//     center: { lat, lng },
+//     zoom: 8,
+//   });
+// }
 // update map function - will update the lat and lng values up there ^
 
 //----------------------------before this is a branch-master dispute------------------
