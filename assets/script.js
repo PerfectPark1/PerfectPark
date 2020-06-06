@@ -133,13 +133,6 @@ function parkPage(parksArray) {
     const lat = park.latitude;
     const description = park.description;
 
-    console.log(parkName);
-    console.log(hours);
-    console.log(directions);
-    // console.log(item.activities[""].names);
-    console.log(lon);
-    console.log(lat);
-
     return `
 		<div class="col s12 m6 l4">
 		<div class="card small">
@@ -161,6 +154,12 @@ function parkPage(parksArray) {
   });
 }
 
+// function LatLon(lat, park, lon) {
+//   lat.attr("lat", park.latitude);
+//   lon.attr("lon", park.longitude);
+//   parkName.attr("#parkName", park.fullName);
+// }
+
 function showParkInfo(e) {
   console.log(e);
   $(e).siblings(".parkInfo").toggle();
@@ -168,15 +167,13 @@ function showParkInfo(e) {
 
 //----------------------------before this is a branch-master dispute------------------
 
-//on click event to get the data val of lon lat
 //----------------------------this is a branch-master dispute------------------
 // google maps api
-// var map = new google.maps.Map(document.getElementById("map"), {
-//   //  fix to pull from above lat/lon
-//   center: { lat, lon },
-//   zoom: 8,
-// });
-
+var map = new google.maps.Map(document.getElementById("map"), {
+  //  fix to pull from above lat/lon
+  center: { lat, lon },
+  zoom: 8,
+});
 // ---------------------MAPS CODE begin HERE----------------------
 // Google Maps API key = AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns
 

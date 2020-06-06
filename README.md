@@ -4,7 +4,7 @@ Create app for users to search parks, trails and weather conditions for those pl
 
 Stephanie - Frontend Development/Model & Controller implementation
 Conner - Frontend Development
-Jordan - jQuery/Model & Controller implementation
+Jordan - jQuery/Frontend Development/Model & Controller implementation
 Kevin - jQuery/debugger
 
 MVP - allow user to search a state to get a list of national parks in that state. When you click on the national park you get park info, weather and pictures of the park.

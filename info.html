@@ -5,58 +5,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-  <!-- Font Awesome link-->
-  <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
-  <!-- icon -->
-  <link
-      rel="icon"
-      href="https://img.icons8.com/carbon-copy/100/000000/national-park.png"
-    />
-  <!-- font -->
-  <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-  <!-- My style sheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' /> -->
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css" />
-
   <title>Park Information</title>
+  <link
+  href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="icon"
+  href="https://img.icons8.com/carbon-copy/100/000000/national-park.png"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"
+></script>
+<link rel="stylesheet" href="assets/style.css" />
+
 </head>
 
 <body>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo center">Perfect Park</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="">About Us</a></li>
-        <!-- <li><a href="badges.html">Compon</a></li>
-            <li><a href="collapsible.html"></a></li> -->
-      </ul>
-    </div>
-  </nav>
-  <!-- Main heading -->
-  <header>
-    <div class="container-fluid">
-      <!-- the h1 needs to be the name of the park chosen -->
-      <h1 id="parkChosen"></h1>
-      <h3 class="below">
-        Below, you can find information about this park's weather, amenities, and more!
-      </h3>
-    </div>
-  </header>
-  <!-- End Main heading -->
-  <!-- Start forecast container -->
+  <!-- nav bar -->
+    <nav>
+      <div class="nav-wrapper">
+        <img
+            src="https://img.icons8.com/carbon-copy/100/000000/national-park.png"
+            width="50"
+            style="margin: 10px 10px;"
+          />
+            <a href="index.html" class="brand-logo center">Perfect Park</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <!-- <li><a href="">About Us</a></li> -->
+        </ul>
+      </div>
+    </nav>
+  
+        <!-- Main header -->
+    <header>
+      <div class="container-fluid">
+        <!-- the h1 needs to be the name of the park chosen -->
+        <h1 id="state-name"></h1>
+        <h3>Info to help plan your trip!</h3>
+      </div>
+    </header>
+        <!-- End Main heading -->
+        
+        <!-- start map section -->
+        <h5>Map:</h5>
+          <div id="map"></div>
+        <!-- end map section -->
+        
+        <!-- Start forecast container -->
   <div class="forecast container">
-    <h6>Swipe left and right to see your 5 Day Forecast!</h6>
-    <!-- Start row -->
-    <div class="row">
+    <h6>5 Day Forecast!</h6>
+          <!-- Start row -->
+    <div class="row ">
       <div class="carousel carousel-slider center">
         <div class="carousel-fixed-item center">
         </div>
@@ -72,15 +82,8 @@
         </div>
     </div>
         <!-- End forecast container -->
-
-    <!-- start map section -->
-        <div class="row">
-            <h5>Map:</h5>
-            <div id="map-display">
-            </div>
-        </div>
-    <!-- end map section -->
-    <!-- start photos section -->
+        
+        <!-- start photos section -->
   <div class="container">
     <div class="row">
         <h5>Photos from the Park!</h5>
@@ -119,61 +122,13 @@
       </div>
     </div>
   </div>
-  <!-- End forecast container -->
-  <!-- start map section -->
-  <div class="row">
-    <h5>Map:</h5>
-    <!-- <div class="map-display">
-      <img class="materialboxed" width="650" src="assets/mapexample.png">
-    </div> -->
-    <!-- <div id='map' style='width: 400px; height: 300px;'></div>
-    <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiY21jYnJpZGUwOSIsImEiOiJja2F6dWpubTAwMjR3MzBwcHE5dmJvaDA1In0.UJbD1XzftoijH31XRb0D3w';
-      var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
-      });
-    </script> -->
-  <!-- start photos section -->
-  <div class="row">
-    <h5>Photos from the Park!</h5>
-    <div class="photos-display">
-      <div class="slider">
-        <ul class="slides">
-          <li>
-            <img class="appendPhoto1"> <!-- random image -->
-          </li>
-          <li>
-            <img class="appendPhoto2"> <!-- random image -->
-          </li>
-          <li>
-            <img class="appendPhoto3"> <!-- random image -->
-          </li>
-          <li>
-            <img class="appendPhoto4"> <!-- random image -->
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-  <!-- end photos section -->
-  <!-- End container -->
-  </div>
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="assets/script.js"></script>
+        <!-- End photos container -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="assets/script.js"></script>
-    <script src="assets/map.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns&callback=initMap"
     type="text/javascript"></script>
+    <script src="assets/script.js"></script>
 </body>
-
 </html>
