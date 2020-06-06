@@ -3,12 +3,6 @@ body,
 html {
   height: 100%;
   font-family: "PT Sans Narrow", sans-serif;
-  background: linear-gradient(
-    90deg,
-    rgba(152, 240, 240, 1) 0%,
-    rgba(228, 238, 221, 1) 50%,
-    rgba(183, 222, 191, 1) 100%
-  );
 }
 
 header {
