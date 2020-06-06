@@ -94,15 +94,18 @@ function populateState(stateCode) {
     stateCode;
 
   // append a loading icon here
-  $(".loaderIcon").append(`<div class="indeterminate"></div>`);
-  $(".txtLoading").html("LOADING...");
+  $("header").hide();
+  $("#container").append(`<div id="loadingIcon" class="progress">
+  <div class="indeterminate"></div>
+</div>`);
 
   $.ajax({
     url: NPSqueryURL,
     method: "GET",
   }).then(function (response) {
     // remove the loading icon here
-    $(".loaderIcon").remove("div");
+    $("#loadingIcon").hide();
+    $("header").show();
 
     $("#state-name").text(stateCode);
 
@@ -167,7 +170,7 @@ function showParkInfo(e) {
 
 //on click event to get the data val of lon lat
 //----------------------------this is a branch-master dispute------------------
-// google maps api
+
 // ---------------------MAPS CODE begin HERE----------------------
 // Google Maps API key = AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns
 
@@ -187,6 +190,7 @@ function initMap(parkName) {
   });
   
 }
+
 // update map function - will update the lat and lng values up there ^
 
 //----------------------------before this is a branch-master dispute------------------

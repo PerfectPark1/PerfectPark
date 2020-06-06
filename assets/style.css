@@ -26,7 +26,7 @@ option {
 #container {
   background: rgba(0, 0, 0, 0.4);
   background-size: cover;
-  height: 100vh;
+  height: 85vh;
 }
 .container-map {
   display: flex;
