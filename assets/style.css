@@ -28,18 +28,9 @@ option {
   background-size: cover;
   height: 85vh;
 }
-.container-map {
-  display: flex;
-  justify-content: center;
-}
 
 #map-display {
-  height: 400px;
-  width: 400px;
-  align-items: center;
-}
-#map-title {
-  text-align: center;
+  height: 100%;
 }
 
 #selectState {
