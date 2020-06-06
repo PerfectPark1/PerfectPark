@@ -4,7 +4,9 @@ html {
   height: 100%;
   font-family: "PT Sans Narrow", sans-serif;
 }
-
+h3 {
+  color: black;
+}
 header {
   text-align: center;
   color: whitesmoke;
