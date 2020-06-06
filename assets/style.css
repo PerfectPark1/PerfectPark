@@ -28,9 +28,18 @@ option {
   background-size: cover;
   height: 100vh;
 }
+.container-map {
+  display: flex;
+  justify-content: center;
+}
 
 #map-display {
-  height: 100%;
+  height: 400px;
+  width: 400px;
+  align-items: center;
+}
+#map-title {
+  text-align: center;
 }
 
 #selectState {

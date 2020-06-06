@@ -136,7 +136,7 @@ function parkPage(parksArray) {
     // console.log(item.activities[""].names);
     console.log(lon);
     console.log(lat);
-
+    initMap(parkName);
     return `
 		<div class="col s12 m6 l4">
 		<div class="card small">
@@ -168,24 +168,24 @@ function showParkInfo(e) {
 //on click event to get the data val of lon lat
 //----------------------------this is a branch-master dispute------------------
 // google maps api
-var map = new google.maps.Map(document.getElementById("map"), {
-  //  fix to pull from above lat/lon
-  center: { lat, lon },
-  zoom: 8,
-});
-
 // ---------------------MAPS CODE begin HERE----------------------
 // Google Maps API key = AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns
 
 var map;
-function initMap() {
+function initMap(parkName) {
   const params = new URLSearchParams(window.location.search);
   const lat = parseFloat(params.get("lat"));
   const lng = parseFloat(params.get("lng"));
   map = new google.maps.Map(document.getElementById("map-display"), {
     center: { lat, lng },
-    zoom: 8,
+    zoom: 10,
   });
+  var marker = new google.maps.Marker({
+    position: {lat, lng},
+    title: parkName,
+    map
+  });
+  
 }
 // update map function - will update the lat and lng values up there ^
 
