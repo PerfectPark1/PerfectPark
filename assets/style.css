@@ -1,174 +1,145 @@
-/* heading class */
+/* element css */
 body,
 html {
-	height: 100%;
-	font-family: "Josefin Sans", sans-serif;
-	background: linear-gradient(
-		90deg,
-		rgba(152, 240, 240, 1) 0%,
-		rgba(228, 238, 221, 1) 50%,
-		rgba(183, 222, 191, 1) 100%
-	);
-}
-
-.home-background {
-	background: url("./bike.jpg") no-repeat center center fixed;
-	background-size: cover;
-}
-
-#container {
-	background: rgba(0, 0, 0, 0.4);
-	background-size: cover;
-	height: 100vh;
+  height: 100%;
+  font-family: "PT Sans Narrow", sans-serif;
 }
 
 header {
-	text-align: center;
-	color: whitesmoke;
-}
-
-#selectState {
-	display: block !important;
-	text-align: center;
-}
-
-.selectOptions {
-	text-align: center;
-	width: 100%;
+  text-align: center;
+  color: whitesmoke;
 }
 
 select {
-	text-align: center;
-	text-align-last: center;
-	width: 200px;
-	padding-right: 30px;
-	margin: 0 auto;
-}
-
-.btn {
-	font-family: "Josefin Sans", sans-serif !important;
-	letter-spacing: 2px;
+  text-align: center;
+  text-align-last: center;
+  width: 200px;
+  padding-right: 30px;
+  margin: 0 auto;
 }
 
 option {
-	text-align: center;
+  text-align: center;
+}
+
+/* id css */
+#container {
+  background: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  height: 100vh;
+}
+
+#map-display {
+  height: 100%;
+}
+
+#selectState {
+  display: block !important;
+  text-align: center;
+}
+
+#submitBtn {
+  background-color: #21b14ad2;
+}
+
+/* class css */
+.nav-wrapper {
+  background-color: #21b14ad2;
+}
+.brand-logo {
+  font-size: larger;
+}
+.home {
+  background: url("../images/Yellowstone-National-Park-USA.jpg") no-repeat
+    center center fixed;
+  background-size: cover;
+}
+
+.selectOptions {
+  text-align: center;
+  width: 100%;
+}
+
+.btn {
+  font-family: "Josefin Sans", sans-serif !important;
+  letter-spacing: 2px;
 }
 
 .title {
-	justify-content: center;
+  justify-content: center;
 }
 
 .menu {
-	display: none;
+  display: none;
 }
-
-/* * {
-	box-sizing: border-box;
-} */
 
 .mySlides {
-	display: none;
+  display: none;
 }
-
-/* img {
-	vertical-align: middle;
-	max-height: min-content;
-} */
 
 /* Slideshow container */
 .slideshow-container {
-	position: relative;
-	margin: auto;
+  position: relative;
+  margin: auto;
 }
 
 /* Caption text */
 .text {
-	color: #f2f2f2;
-	font-size: xx-small;
-	padding: 3%;
-	position: absolute;
-	bottom: 7%;
-	width: 100%;
-	text-align: left;
-}
-
-/* The dots/bullets/indicators */
-
-.slideDots {
-	text-align: center;
-	margin-top: 1%;
-}
-
-.dot {
-	height: 10px;
-	width: 10px;
-	margin: 0 2px;
-	background-color: #bbb;
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
+  color: #f2f2f2;
+  font-size: xx-small;
+  padding: 3%;
+  position: absolute;
+  bottom: 7%;
+  width: 100%;
+  text-align: left;
 }
 
 .active {
-	background-color: #717171;
+  background-color: #717171;
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-	.text {
-		font-size: 11px;
-	}
+  .text {
+    font-size: 11px;
+  }
 }
-
-/* .subtitle-homepage {
-	background: rgba(137, 166, 106, 0.89) 78%;
-	padding: 3%;
-	font-size: small;
-} */
-
-/* park list */
 
 .txtLoading {
-	color: #ffffff;
-}
-.nav-wrapper {
-	background-color: forestgreen;
+  color: #ffffff;
 }
 
 .card-body {
-	margin: 1%;
+  margin: 1%;
 }
 
 .below {
-	color: navy;
-	padding: 3%;
+  color: navy;
+  padding: 3%;
 }
+
 .carousel {
-	background-color: lightslategray;
+  background-color: lightslategray;
 }
 
 @keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
 
-	100% {
-		transform: rotate(360deg);
-	}
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .parks {
-	padding: 3% 3%;
+  padding: 3% 3%;
 }
 
-#map-display {
-	height: 100%;
-  }
-
 .centerMiddle {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }

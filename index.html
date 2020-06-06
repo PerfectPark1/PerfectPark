@@ -1,151 +1,99 @@
-  
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Perfect Park</title>
+  <head>
+    <title>Perfect Park</title>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://img.icons8.com/carbon-copy/100/000000/national-park.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
-  <link href="https://fonts.googleapis.com/css2?family=Corben:wght@700&family=Josefin+Sans:wght@600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="icon" href="assets/icon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-  <link rel="stylesheet" href="assets/style.css" />
-</head>
-
-<body class="home-background">
-
-  <div id="container">
-    <nav>
-      <div class="nav-wrapper">
-        <img src="./assets/icon.png" width="50" style="margin:0 10px;">
-        <a href="index.html" class="brand-logo">Perfect Park</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="info.html"><i class="material-icons">cloud</i></a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <header class="container">
-      <!-- Fixed background img TBD -->
-      <div class="centerMiddle">
-        <h1>Select your National Park</h1>
-        <!-- <span class="w3-text-white w3-hide-large w3-hide-medium title">PERFECT PARK</span> -->
-        <h4 class="subtitle-homepage" textarea="size">
-          Select the state in which you would like to visit a National Park in!
-        </h4>
-        <div class="selectOptions">
-          <select class="center-align" id="selectState">
-            <option class="center-align">Select a state</option>
-          </select>
+  <body class="home">
+    <div id="container">
+      <nav>
+        <div class="nav-wrapper">
+          <img
+            src="https://img.icons8.com/carbon-copy/100/000000/national-park.png"
+            width="50"
+            style="margin: 10px 10px;"
+          />
+          <a href="index.html" class="brand-logo">Perfect Park</a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <!-- <a href="info.html"><i class="material-icons">cloud</i></a> -->
+            </li>
+          </ul>
         </div>
-        <br />
+      </nav>
 
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="submitBtn" action="#parks">Search
-          <i class="material-icons right">search</i>
-        </button>
-      </div>
-    </header>
+      <header class="container">
+        <!-- Fixed background img TBD -->
+        <div class="centerMiddle">
+          <h1>Select your National Park</h1>
 
-  </div>
-  <div class="parks row" id="parks"></div>
+          <h4 class="subtitle-homepage" textarea="size">
+            Select the state in which you would like to visit a National Park
+            in!
+          </h4>
 
-<head>
-  <title>Perfect Park</title>
+          <div class="selectOptions">
+            <select class="center-align" id="selectState">
+              <option class="center-align">Select a state</option>
+            </select>
+          </div>
+          <br />
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
-  <link href="https://fonts.googleapis.com/css2?family=Corben:wght@700&family=Josefin+Sans:wght@600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="icon" href="assets/icon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="assets/style.css" />
-</head>
-
-<body class="home-background">
-
-  <div id="container">
-    <nav>
-      <div class="nav-wrapper">
-        <img src="./assets/icon.png" width="50" style="margin:0 10px;">
-        <a href="index.html" class="brand-logo">Perfect Park</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="info.html"><i class="material-icons">cloud</i></a></li>
-          <!-- <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-          <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-          <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li> -->
-        </ul>
-      </div>
-    </nav>
-
-    <header class="container">
-      <!-- Fixed background img TBD -->
-      <div class="centerMiddle">
-        <h1>Select your National Park</h1>
-        <!-- <span class="w3-text-white w3-hide-large w3-hide-medium title">PERFECT PARK</span> -->
-        <h4 class="subtitle-homepage" textarea="size">
-          Select the state in which you would like to visit a National Park in!
-        </h4>
-        <div class="selectOptions">
-          <select class="center-align" id="selectState">
-            <option class="center-align">Select a state</option>
-          </select>
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+            id="submitBtn"
+            action="#parks"
+          >
+            Search
+            <i class="material-icons right">search</i>
+          </button>
         </div>
-        <br />
+      </header>
+    </div>
 
-        <!-- <button class="btn waves-effect waves-light" id="submitBtn" type="submit" name="action"> Search<i
-            class="material-icons center"><span class="material-icons">
-              search
-            </span></i>
-        </button> -->
+    <!-- parks print here -->
+    <div class="parks row" id="parks"></div>
 
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="submitBtn" action="#parks">Search
-          <i class="material-icons right">search</i>
-        </button>
-      </div>
-    </header>
+    <script
+      src="https://kit.fontawesome.com/ca89a4b9f5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/script.js" type="text/javascript"></script>
 
-  </div>
-
-  <!-- End Main heading -->
-  <!-- list out all the parks  -->
-
-  <!-- once you click on a park, it shows the weather -->
-
-  <!-- dropdown list of states -->
-
-  <!-- weather info:  Jordan's killer weather app  This should be-------------->
-  <!-- Start container -->
-  <div class="parks row" id="parks"></div>
-
-  </div>
-
-
-  <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <!-- <script src="slides.js"></script> -->
-  <script src="./assets/script.js" type="text/javascript"></script>
-
-  <script>
-    $(document).ready(function () {
-      $('.tabs').tabs();
-    });
-
-  </script>
+    <script>
+      $(document).ready(function () {
+        $(".tabs").tabs();
+      });
+    </script>
   </body>
 </html>
