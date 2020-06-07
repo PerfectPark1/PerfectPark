@@ -63,6 +63,9 @@ var stateCode = [
   "WY",
 ];
 
+let lat = "";
+let lon = "";
+
 // Populates the dropdown with array from stateCode.
 // This will prevent the appendChild function from causing errors
 if (select) {
@@ -129,9 +132,10 @@ function parkPage(parksArray) {
     const parkName = park.fullName;
     const hours = park.operatingHours[0].standardHours.monday;
     const directions = park.directionsUrl;
-    const lon = park.longitude;
-    const lat = park.latitude;
+    lon = park.longitude;
+    lat = park.latitude;
     const description = park.description;
+    // initMap();
 
     return `
 		<div class="col s12 m6 l4">
@@ -142,7 +146,7 @@ function parkPage(parksArray) {
 			<div class="card-content">
 			<span class="card-title activator grey-text text-darken-4">${hours}<i class="material-icons right">more_vert</i></span>
 			<p><a href="${directions}">Directions</a></p>
-			<p><a href="info.html?lat=${lat}&lng=${lon}">Weather, Map, and Photos</a></p>
+			<p><a href="info.html?lat=${lat}&lng=${lon}" onclick="${initMap}">Weather, Map, and Photos</a></p>
 		  </div>
 		  <div class="card-reveal">
 			<span class="card-title grey-text text-darken-4">${parkName}<i class="material-icons right">close</i></span>
@@ -169,11 +173,11 @@ function showParkInfo(e) {
 
 //----------------------------this is a branch-master dispute------------------
 // google maps api
-var map = new google.maps.Map(document.getElementById("map"), {
-  //  fix to pull from above lat/lon
-  center: { lat, lon },
-  zoom: 8,
-});
+// var map = new google.maps.Map(document.getElementById("map"), {
+//   //  fix to pull from above lat/lon
+//   center: { lat, lon },
+//   zoom: 8,
+// });
 // ---------------------MAPS CODE begin HERE----------------------
 // Google Maps API key = AIzaSyBcw9pJVFgt3Cf1WVVXPeepdHhCKO0rMns
 
@@ -187,6 +191,35 @@ var map = new google.maps.Map(document.getElementById("map"), {
 //     zoom: 8,
 //   });
 // }
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 2,
+    center: new google.maps.LatLng(lat, lon),
+    mapTypeId: 'terrain'
+  });
+
+  // Create a <script> tag and set the USGS URL as the source.
+  var script = document.createElement('script');
+  // This example uses a local copy of the GeoJSON stored at
+  // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+  script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+// Loop through the results array and place a marker for each
+// set of coordinates.
+window.eqfeed_callback = function (results) {
+  for (var i = 0; i < results.features.length; i++) {
+    var coords = results.features[i].geometry.coordinates;
+    var latLng = new google.maps.LatLng(coords[1], coords[0]);
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+    });
+  }
+}
 // update map function - will update the lat and lng values up there ^
 
 //----------------------------before this is a branch-master dispute------------------
@@ -202,7 +235,7 @@ const WqueryURL =
   "&appid=" +
   WapiKey;
 $.ajax({
-  url: queryUrl,
+  url: WqueryURL,
   method: "GET",
 }).then(function (response) {
   // select city of park pulled up
