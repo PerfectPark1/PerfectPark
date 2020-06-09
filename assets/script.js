@@ -189,7 +189,10 @@ dosomething = (x) => {
                       <div style="padding:20px;">
                           <h4><span style='color:red;'>DIRECTION:</span> ${y.directionsInfo}
                           <br/>
-                          <a href="${y.directionsUrl}" target="_blank">${y.directionsUrl}</a></h4>
+                          </h4>
+                          <h6>Plan Your Visit Here:
+                          <a href="${y.directionsUrl}" target="_blank">${y.directionsUrl}</a>
+                          </h6>
                           <br/><br/>
                           <div id="map" style="height:500px; width:100%;"></div>
                       </div>
@@ -199,7 +202,24 @@ dosomething = (x) => {
                   <div class="card-content">
                       <div style="padding:20px;">
                           <h4><span style='color:red;'>WEATHER:</span> ${y.weatherInfo}</h4>
-                          <div id="weather"></div>
+                          <h4 id="date"></h4>
+                          <div id="weather" class="row">
+                            <div class="col s2">
+                            <img id="icon">
+                            </div>
+                            <div class="col s2">
+                              <h6 id="temp-today"></h6>
+                            </div>
+                            <div class= "col s2">
+                              <h6 id="feels-like"></h6>
+                            </div>
+                            <div class= "col s2">
+                              <h6 id="wind-today"></h6>
+                            </div>
+                            <div class= "col s2">
+                              <h6 id="hum-today"></h6>
+                            </div>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -242,13 +262,13 @@ function initMap(x, y) {
   }
 
 
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-      'Error: The Geolocation service failed.' :
-      'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-  }
+  // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  //   infoWindow.setPosition(pos);
+  //   infoWindow.setContent(browserHasGeolocation ?
+  //     'Error: The Geolocation service failed.' :
+  //     'Error: Your browser doesn\'t support geolocation.');
+  //   infoWindow.open(map);
+  // }
 
   window.eqfeed_callback = function (results) {
     for (var i = 0; i < results.features.length; i++) {
@@ -273,28 +293,39 @@ function initWeather(x, y) {
     // select city of park pulled up
     console.log(response);
     parkWeather(response);
+    let icon = response.weather[0].icon;
+    $("#icon").attr("src", "https://openweathermap.org/img/w/" + icon + ".png");
   });
 }
 
 function parkWeather(response) {
+  // todays date:
+  $("#date").html(moment().format("dddd, MMMM Do YYYY"));
   // get the temperature and convert to fahrenheit
   let tempF = (response.main.temp - 273.15) * 1.8 + 32;
   tempF = Math.floor(tempF);
+  const displayTodayTemp = $("<p>").text("Temperature: " + tempF + " °F");
+    $("#temp-today").html(displayTodayTemp);
+  // get the feels like temperature and convert to fahrenheit
+  let feelsLike = Math.floor((response.main.feels_like - 273.15) * 1.8 + 32);
+  const displayFeelsLike = $("<p>").text("Feels like: " + feelsLike + " °F");
+   $("#feels-like").html(displayFeelsLike);
+
+  //  get the wind speed, display it with units, and put it in the right column
+  let windSpeed = response.wind.speed;
+  $("#wind-today").html("Wind Speed: " + windSpeed + " MPH");
+
+  //  get the wind speed, display it with units, and put it in the right column
+  var humToday = response.main.humidity
+  $("#hum-today").html("Humidity: " + humToday + "%");
+
   // pulling lon and lat for the UVIndex
   let lonW = response.coord.lon;
   let latW = response.coord.lat;
-
+  uvIndex(lonW, latW)
   // get and set the content
-  let card = `
-      <div>This is the weather for today.</div>
-  `
-  //  select the id we use to display weather
-  $("#weather").append(card);
-  //   * UV index
-  // Pulling lon, lat info to uvIndex
-  // uvIndex(lon, lat);
 
-  function uvIndex(lonW, latW) {
+  function uvIndex(latW, lonW) {
     // SEARCHES
     var UVQuery =
       "http://api.openweathermap.org/data/2.5/uvi?" +
@@ -309,7 +340,6 @@ function parkWeather(response) {
       method: "GET",
     }).then(function (response) {
       const uvFinal = response.value;
-      // then append button with uvFinal printed to it
       // select the id we use to display weather
       $("#weather").append(card);
       var badge = $("<div>")
