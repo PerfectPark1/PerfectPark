@@ -20,6 +20,10 @@ select {
 	margin: 0 auto;
 }
 
+.col .row {
+	display: flex;
+}
+
 option {
 	text-align: center;
 }
@@ -133,7 +137,9 @@ option {
 		transform: rotate(360deg);
 	}
 }
-
+.weather {
+	background-color: lightskyblue;
+}
 .parks {
 	padding: 3% 3%;
 }
@@ -144,4 +150,8 @@ option {
 	left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, -50%);
+}
+
+nav .brand-logo {
+	font-size: 95%
 }
