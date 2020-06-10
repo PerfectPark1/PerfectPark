@@ -125,7 +125,7 @@ function parkPage(x) {
     const parkName = park.fullName;
     console.log(parkName);
 
-    const hours = park.operatingHours[0].standardHours.monday,
+    const hours = park.operatingHours[0] ? park.operatingHours[0].standardHours.monday : console.log("not an error i promise")//,
       directions = park.directionsUrl,
       description = park.description;
     lon = park.longitude;
@@ -256,7 +256,7 @@ function initMap(x, y) {
       infoWindow.open(map);
       map.setCenter(pos);
     }, function () {
-      handleLocationError(true, infoWindow, map.getCenter());
+//       handleLocationError(true, infoWindow, map.getCenter());
     }
     );
   } else {
