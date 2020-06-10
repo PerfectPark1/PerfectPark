@@ -9,7 +9,9 @@ Kevin - jQuery/debugger
 
 MVP - allow user to search a state to get a list of national parks in that state. When you click on the national park you get park info, weather and pictures of the park.
 
-Wireframes for the idea
+Wireframes for the idea:
+https://github.com/PerfectPark1/PerfectPark/blob/master/images/two-wireframes.png
+https://github.com/PerfectPark1/PerfectPark/blob/master/images/wireframe.png
 
 Tech Stack & Tools
 *JSON Formater (Postman)
