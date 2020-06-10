@@ -203,20 +203,22 @@ dosomething = (x) => {
                       <div style="padding:20px;">
                           <h4><span style='color:red;'>WEATHER:</span> ${y.weatherInfo}</h4>
                           <h4 id="date"></h4>
-                          <div id="weather" class="row">
-                            <div class="col s2">
+                          <div class="weather row">
+                            <div class="col s4">
                             <img id="icon">
                             </div>
-                            <div class="col s2">
+                            <div class="col s4">
                               <h6 id="temp-today"></h6>
                             </div>
-                            <div class= "col s2">
+                            <div class= "col s4">
                               <h6 id="feels-like"></h6>
                             </div>
-                            <div class= "col s2">
+                          </div>
+                          <div class="weather row">
+                            <div class= "col s6">
                               <h6 id="wind-today"></h6>
                             </div>
-                            <div class= "col s2">
+                            <div class= "col s6">
                               <h6 id="hum-today"></h6>
                             </div>
                           </div>
@@ -255,7 +257,8 @@ function initMap(x, y) {
       map.setCenter(pos);
     }, function () {
       handleLocationError(true, infoWindow, map.getCenter());
-    });
+    }
+    );
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
@@ -318,51 +321,4 @@ function parkWeather(response) {
   //  get the wind speed, display it with units, and put it in the right column
   var humToday = response.main.humidity
   $("#hum-today").html("Humidity: " + humToday + "%");
-
-  // pulling lon and lat for the UVIndex
-  let lonW = response.coord.lon;
-  let latW = response.coord.lat;
-  uvIndex(lonW, latW)
-  // get and set the content
-
-  function uvIndex(latW, lonW) {
-    // SEARCHES
-    var UVQuery =
-      "http://api.openweathermap.org/data/2.5/uvi?" +
-      wAPIkey +
-      "&lat=" +
-      latW +
-      "&lon=" +
-      lonW;
-
-    $.ajax({
-      url: UVQuery,
-      method: "GET",
-    }).then(function (response) {
-      const uvFinal = response.value;
-      // select the id we use to display weather
-      $("#weather").append(card);
-      var badge = $("<div>")
-        .addClass(badge)
-        .text("UV Index: " + uvFinal);
-      $("#weather").append(badge);
-      // then style uvFinal button with below
-      if (uvFinal < 3) {
-        // IF RETURN IS 0-2 SYLE GREEN
-        badge.attr("class", " badge-pill badge-success");
-      } else if (uvFinal < 6) {
-        // IF 3-5 STYLE YELLOW
-        badge.attr("class", "badge-pill badge-warning");
-      } else if (uvFinal < 8) {
-        // IF 6-7 STYLE ORANGE
-        badge.attr("class", "badge-pill badge-warning");
-      } else if (uvFinal < 11) {
-        // IF 8-10 STYLE RED
-        badge.attr("class", "badge-pill badge-danger");
-      } else {
-        // IF 11+ STYLE VIOLET
-        badge.attr("class", "badge-pill badge-dark");
-      }
-    });
-  }
 }
